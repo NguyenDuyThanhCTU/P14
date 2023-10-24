@@ -1,0 +1,118 @@
+@import "~antd/dist/antd.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .menu-li {
+    @apply p-2 border-b border-dotted hover:bg-gray-700
+  }
+  .menu-li-be {
+    @apply p-3 px-10 w-full flex items-center font-bold hover:text-blue-500 hover:bg-gray-200
+  }
+.menu-li-desktop {
+  @apply p-3 mr-[50px] text-white cursor-pointer hover:text-red-500
+  }
+  .box-cauhinh {
+    @apply p-3 my-5 shadow-md hover:shadow-lg w-full md:w-[20vw]
+  }
+  .web-bg {
+    @apply h-full bg-gradient-to-tr from-white to-yellow-300
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.3;
+  color: #555555;
+  font-family: 'Roboto',sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none; */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+button {
+    cursor: pointer;
+}
+.ql-editor {
+    min-height: 300px;
+}
+.ant-btn-primary {
+    background-color: rgb(75, 75, 255) !important;
+}
+.ant-btn-primary:hover {
+    background-color: rgb(147, 147, 255) !important;
+}
+.ant-btn-danger {
+    background-color: rgb(255, 69, 69) !important;
+}
+.ant-btn-danger:hover {
+    background-color: rgb(255, 89, 89) !important;
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+.text-gradian {
+    background: -webkit-linear-gradient(blue, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* Brightness-zoom Container */
+.img-hover-zoom--brightness img {
+    transition: filter 1s ease-in-out;
+    transform-origin: center center;
+    filter: brightness(100%);
+  }
+  
+  /* The Transformation */
+  .img-hover-zoom--brightness:hover img {
+    filter: brightness(50%);
+  }
+
+  @-webkit-keyframes my {
+    0% { color: #c1e06c; } 
+    50% { color: rgb(182, 23, 23);  } 
+    100% { color: rgb(34, 72, 155);  } 
+}
+@-moz-keyframes my { 
+    0% { color: #c1e06c; } 
+    50% { color: rgb(182, 23, 23);  } 
+    100% { color: rgb(34, 72, 155);  } 
+}
+@-o-keyframes my { 
+    0% { color: #c1e06c; } 
+    50% { color: rgb(182, 23, 23);  } 
+    100% { color: rgb(34, 72, 155);  } 
+}
+@keyframes my { 
+    0% { color: #c1e06c; } 
+    50% { color: rgb(182, 23, 23);  } 
+    100% { color: rgb(34, 72, 155);  }  
+} 
+.text-decor {
+    -webkit-animation: my 2000ms infinite;
+    -moz-animation: my 2000ms infinite; 
+    -o-animation: my 2000ms infinite; 
+    animation: my 2000ms infinite;
+}
+  
