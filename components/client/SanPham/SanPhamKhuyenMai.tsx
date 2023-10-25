@@ -1,12 +1,14 @@
+"use client";
 import React, { Fragment, useContext } from "react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-import { AppContext } from "../../Context/AppProvider";
+
 import SanPham from "./SanPham";
+import { useData } from "@Context/AppProvider";
 
 export default function SanPhamKhuyenMai() {
-  const { navigate, sanphamsalesoff } = useContext(AppContext);
+  const { router, sanphamsalesoff } = useData();
   return (
     <Fragment>
       <div className="web-bg">
@@ -22,7 +24,7 @@ export default function SanPhamKhuyenMai() {
             <button
               className="text-white py-2 px-5 bg-red-500 rounded-lg font-bold text-xl"
               onClick={() => {
-                navigate("/tatcasanpham");
+                router.push("/tatcasanpham");
                 setTimeout(() => {
                   window.scroll(0, 0);
                 }, 1000);

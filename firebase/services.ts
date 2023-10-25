@@ -68,6 +68,33 @@ export const uploadFile = async (
   }
 };
 
+export const uploadImage = async (fileOrEvent: any, locate: any) => {
+  try {
+    let selectImage;
+    if (fileOrEvent.target && fileOrEvent.target.files) {
+      selectImage = fileOrEvent.target.files[0];
+    } else {
+      selectImage = fileOrEvent;
+    }
+
+    const filetypes = ["image/jpeg", "image/jpg", "image/png"];
+
+    if (filetypes.includes(selectImage.type)) {
+      const storageRef = await firebase
+        .storage()
+        .ref(`${locate}/${selectImage.name}`)
+        .put(selectImage);
+
+      const imageSrc = await storageRef.ref.getDownloadURL();
+
+      return imageSrc;
+    }
+  } catch (error) {
+    console.error("Error uploading file:", error);
+    return null;
+  }
+};
+
 export const generateKeywords = (data: string): string[] => {
   const name = data
     .toLowerCase()

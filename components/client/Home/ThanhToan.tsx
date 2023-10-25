@@ -1,15 +1,15 @@
+"use client";
+import { useData } from "@Context/AppProvider";
+import { useFE } from "@Context/FrontEndProvider";
 import { DeleteOutlined } from "@ant-design/icons";
+import { addDocument } from "@firebase/services";
 import { Drawer } from "@mui/material";
 import { Button, Input, message, notification } from "antd";
 import React, { Fragment, useContext, useState } from "react";
-import { addDocument } from "../../firebase/services";
-import { FrontEndContext } from "./../../Context/FrontEndProvider";
-import { AppContext } from "./../../Context/AppProvider";
 
 export default function ThanhToan() {
-  const { thongtin } = useContext(AppContext);
-  const { thanhToan, setThanhToan, gioHang, setGiohang } =
-    useContext(FrontEndContext);
+  const { thongtin } = useData();
+  const { thanhToan, setThanhToan, gioHang, setGiohang } = useFE();
   const [ten, setTen] = useState("");
   const [sdt, setSdt] = useState("");
   const [diachi, setDiachi] = useState("");
@@ -19,7 +19,7 @@ export default function ThanhToan() {
   const giaTien = gioHang.map((data) => data.tongtien);
   // eslint-disable-next-line no-eval
   const tongtien = eval(giaTien?.join("+"));
-  function deleteByVal(uid) {
+  function deleteByVal(uid: any) {
     for (let i = 0; i < gioHang.length; i++) {
       if (gioHang[i].uid === uid) {
         gioHang.splice(i, 1);
@@ -78,7 +78,7 @@ export default function ThanhToan() {
             </div>
             <div>
               <Button
-                type="danger"
+                type="primary"
                 icon={<DeleteOutlined />}
                 onClick={() => {
                   deleteByVal(data.uid);

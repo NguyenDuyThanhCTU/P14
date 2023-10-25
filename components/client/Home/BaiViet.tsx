@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import moment from "moment";
 import { useData } from "@Context/AppProvider";
 
-export default function TinTuc() {
+export default function Baiviet() {
   const { baiviet, desktop, setUid, router } = useData();
   const baiViet = (
     <div>

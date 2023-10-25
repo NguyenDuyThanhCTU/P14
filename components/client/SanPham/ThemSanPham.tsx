@@ -1,15 +1,15 @@
+import { useData } from "@Context/AppProvider";
+import { useFE } from "@Context/FrontEndProvider";
 import { Button, Drawer } from "@mui/material";
 import { Badge, notification } from "antd";
 import React, { Fragment, useContext } from "react";
-import { AppContext } from "./../../Context/AppProvider";
-import { FrontEndContext } from "./../../Context/FrontEndProvider";
 
 export default function ThemSanPham() {
-  const { sanphamSelected, desktop } = useContext(AppContext);
-  const { themSanpham, setThemSanpham, setGiohang } =
-    useContext(FrontEndContext);
+  const { sanphamSelected, desktop } = useData();
+  const { themSanpham, setThemSanpham, setGiohang } = useFE();
+
   const themGiohang = () => {
-    setGiohang((prevState) => [
+    setGiohang((prevState: any) => [
       ...prevState,
       {
         uid: sanphamSelected[0].uid,
@@ -25,7 +25,7 @@ export default function ThemSanPham() {
     });
     setThemSanpham(false);
   };
-  const sanPham = sanphamSelected.map((data) => (
+  const sanPham = sanphamSelected.map((data: any) => (
     <div className="m-5" key={data.uid}>
       <Badge.Ribbon placement="start" color="red" text={data.loai1}>
         <div className="p-2 mb-7 h-full bg-white rounded-lg hover:shadow-xl flex justify-center items-center">

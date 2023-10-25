@@ -3,7 +3,7 @@ import { createContext, useState, ReactNode, useContext } from "react";
 
 interface FrontEndContextType {
   gioHang: any[]; // Replace 'any[]' with the appropriate type for gioHang
-  setGiohang: (gioHang: any[]) => void; // Replace 'any[]' with the appropriate type
+  setGiohang: (gioHang: any) => any; // Replace 'any[]' with the appropriate type
   themSanpham: boolean;
   setThemSanpham: (themSanpham: boolean) => void;
   thanhToan: boolean;
@@ -12,7 +12,7 @@ interface FrontEndContextType {
 
 export const FrontEndContext = createContext<FrontEndContextType>({
   gioHang: [],
-  setGiohang: () => {},
+  setGiohang: () => null,
   themSanpham: false,
   setThemSanpham: () => {},
   thanhToan: false,

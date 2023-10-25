@@ -247,16 +247,16 @@ export default function Header() {
     </div>
   );
   const desktopHeader = (
-    <div>
-      <div className="bg-black p-2 flex justify-between items-center text-white">
+    <div className="bg-[#F0A122]">
+      {/* <div className="bg-black p-2 flex justify-between items-center text-white">
         <p className="flex items-center">
           <GiPositionMarker className="mr-1" /> {thongtin[0]?.diachi1}
         </p>
         <p className="flex items-center">
           <SiGmail className="mr-1" /> {thongtin[0]?.gmail}
         </p>
-      </div>
-      <div className="bg-white p-5 flex justify-around items-center">
+      </div> */}
+      <div className="px-10 text-[#8D6222] p-5 flex justify-between items-center">
         <img className="w-[80px]" alt="" src={thongtin[0]?.logo} />
         <div className="bg-white w-1/4 flex">
           <Input
@@ -311,7 +311,7 @@ export default function Header() {
             </Popover>
           </div>
         </div>
-        <div className="flex">
+        {/* <div className="flex">
           <div className="p-2 border border-dotted border-black flex justify-center items-center mr-2">
             <FiPhoneCall className="text-[28px] text-black" />
           </div>
@@ -324,7 +324,7 @@ export default function Header() {
               )}
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
       <ul className="flex ml-[80px] bg-black">
         <li className="menu-li-desktop flex justify-start items-center font-bold">

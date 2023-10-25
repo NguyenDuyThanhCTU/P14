@@ -14,6 +14,24 @@ const firebaseConfig = {
   appId: "1:500465902609:web:6d24bff3b07effa644bdb0",
   measurementId: "G-9FMLG8VJMD",
 };
+
+// const firebaseConfig = {
+
+//   apiKey: "AIzaSyC6R5vYM_meoPMMEUJpo79353fmWYmwKuY",
+
+//   authDomain: "nongsanthuysanthienngoc.firebaseapp.com",
+
+//   projectId: "nongsanthuysanthienngoc",
+
+//   storageBucket: "nongsanthuysanthienngoc.appspot.com",
+
+//   messagingSenderId: "408695325209",
+
+//   appId: "1:408695325209:web:01aeaaaf44b92880032088",
+
+//   measurementId: "G-S8RW3QL7VD"
+
+// };
 // Initialize Firebase
 
 if (!firebase.apps.length) {

@@ -16,7 +16,6 @@ export default function Homepage() {
   return (
     <Fragment>
       <div className="web-bg">
-        <Header />
         <SliderShow />
         <SanPhamKhuyenMai />
         <SanPhamNoiBat />

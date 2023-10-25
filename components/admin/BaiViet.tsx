@@ -17,13 +17,10 @@ import {
   uploadFile,
 } from "../../firebase/services";
 import { AppContext } from "./../../Context/AppProvider";
-import { Editor } from "./../ReactQuill.js/Editor";
-import ReactQuill from "react-quill";
-import EditorToolbar, {
-  modules,
-  formats,
-} from "../ReactQuill.js/EditorToolbar";
+
 import "react-quill/dist/quill.snow.css";
+import dynamic from "next/dynamic";
+import TextEditor from "@components/client/CKEditor/TextEditor";
 
 export default function BaiViet() {
   const {
@@ -245,7 +242,7 @@ export default function BaiViet() {
           )}
         </Form.Item>
         <Form.Item label="Viết bài viết mô tả :">
-          <Editor />
+          <TextEditor />
         </Form.Item>
         <Button variant="contained" fullWidth onClick={handleAdd}>
           THÊM NỘI DUNG MỚI
@@ -316,16 +313,7 @@ export default function BaiViet() {
             )}
           </Form.Item>
           <Form.Item label="Viết bài viết mô tả :">
-            <div className="text-editor">
-              <EditorToolbar />
-              <ReactQuill
-                theme="snow"
-                value={editor?.value}
-                onChange={(value) => setEditor({ value })}
-                modules={modules}
-                formats={formats}
-              />
-            </div>
+            <TextEditor />
           </Form.Item>
           <Button variant="contained" fullWidth onClick={handleEdit}>
             CẬP NHẬT NỘI DUNG

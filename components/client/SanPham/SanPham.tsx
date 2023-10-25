@@ -1,21 +1,24 @@
+"use client";
 import { Button } from "@mui/material";
 import { Badge } from "antd";
 import React, { Fragment, useContext } from "react";
 import ScrollAnimation from "react-animate-on-scroll";
+
 import { RiShoppingCartFill } from "react-icons/ri";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-import { AppContext } from "../../Context/AppProvider";
-import { FrontEndContext } from "../../Context/FrontEndProvider";
 
-export default function SanPham({ sanpham }) {
-  const { setUid, setLoai, navigate } = useContext(AppContext);
-  const { setThemSanpham } = useContext(FrontEndContext);
+import { useData } from "@Context/AppProvider";
+import { useFE } from "@Context/FrontEndProvider";
+
+export default function SanPham({ sanpham }: any) {
+  const { setUid, setLoai, router } = useData();
+  const { setThemSanpham } = useFE();
   return (
     <Fragment>
       <div className="flex flex-wrap md:justify-center justify-center items-center">
-        {sanpham?.map((data) => (
+        {sanpham?.map((data: any) => (
           <div className="m-2 md:m-10 md:w-[18vw]" key={data.uid}>
             <Badge.Ribbon
               placement="start"
@@ -66,7 +69,7 @@ export default function SanPham({ sanpham }) {
                     onClick={() => {
                       setUid(data.uid);
                       setLoai(data.loai1);
-                      navigate(`/san-pham/${data.loai1}/${data.uid}`);
+                      router.push(`/san-pham/${data.loai1}/${data.uid}`);
                       setTimeout(() => {
                         window.scroll(0, 0);
                       }, 1000);

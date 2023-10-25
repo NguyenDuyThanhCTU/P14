@@ -18,13 +18,11 @@ import {
   updDocument,
   uploadFile,
 } from "../../firebase/services";
-import EditorToolbar, {
-  formats,
-  modules,
-} from "../ReactQuill.js/EditorToolbar";
+
 import { AppContext } from "./../../Context/AppProvider";
-import { Editor } from "./../ReactQuill.js/Editor";
 import useCollectionLoai1 from "./../../Hooks/useCollectionLoai1";
+
+import TextEditor from "@components/client/CKEditor/TextEditor";
 
 export default function SanPham() {
   const {
@@ -342,7 +340,7 @@ export default function SanPham() {
           )}
         </Form.Item>
         <Form.Item label="Viết bài viết mô tả :">
-          <Editor />
+          <TextEditor />
         </Form.Item>
         <Button variant="contained" fullWidth onClick={handleAdd}>
           THÊM NỘI DUNG MỚI
@@ -483,16 +481,7 @@ export default function SanPham() {
             )}
           </Form.Item>
           <Form.Item label="Viết bài viết mô tả :">
-            <div className="text-editor">
-              <EditorToolbar />
-              <ReactQuill
-                theme="snow"
-                value={editor?.value}
-                onChange={(value) => setEditor({ value })}
-                modules={modules}
-                formats={formats}
-              />
-            </div>
+            <TextEditor />
           </Form.Item>
           <Button variant="contained" fullWidth onClick={handleEdit}>
             CẬP NHẬT NỘI DUNG
