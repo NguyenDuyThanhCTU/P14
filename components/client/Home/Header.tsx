@@ -247,7 +247,7 @@ export default function Header() {
     </div>
   );
   const desktopHeader = (
-    <div className="bg-[#F0A122]">
+    <div className="bg-[#F0A122] flex flex-col py-5">
       {/* <div className="bg-black p-2 flex justify-between items-center text-white">
         <p className="flex items-center">
           <GiPositionMarker className="mr-1" /> {thongtin[0]?.diachi1}
@@ -256,12 +256,11 @@ export default function Header() {
           <SiGmail className="mr-1" /> {thongtin[0]?.gmail}
         </p>
       </div> */}
-      <div className="px-10 text-[#8D6222] p-5 flex justify-between items-center">
+      <div className="px-20 text-[#8D6222]  flex justify-between items-center">
         <img className="w-[80px]" alt="" src={thongtin[0]?.logo} />
-        <div className="bg-white w-1/4 flex">
+        <div className="bg-white w-1/4 flex rounded-md">
           <Input
-            prefix={<SearchOutlined />}
-            className="rounded-l-lg p-1"
+            className=" p-1 px-3 outline-none border-none"
             placeholder="Tìm kiếm sản phẩm..."
             onChange={(e) => setSearch(e.target.value)}
             onPressEnter={() => {
@@ -269,7 +268,10 @@ export default function Header() {
               window.scroll(0, 0);
             }}
           />
-          <Button
+          <div className=" h-full px-3">
+            <SearchOutlined />
+          </div>
+          {/* <Button
             type="primary"
             className="rounded-r-lg"
             onClick={() => {
@@ -277,10 +279,10 @@ export default function Header() {
               window.scroll(0, 0);
             }}
           >
-            Tìm
-          </Button>
+      
+          </Button> */}
         </div>
-        <div className="flex justify-around items-center">
+        {/* <div className="flex justify-around items-center">
           <div
             className="p-2 border border-dotted rounded-full border-black flex justify-center items-center mr-3"
             onClick={() => window.open(`${thongtin[0]?.fanpage}`)}
@@ -310,8 +312,25 @@ export default function Header() {
               </Badge>
             </Popover>
           </div>
-        </div>
-        {/* <div className="flex">
+        </div> */}
+        <div className="flex gap-5">
+          <div>
+            <Popover placement="bottomLeft" trigger="click" content={tongHang}>
+              <Badge
+                color="blue"
+                count={
+                  Object.keys(gioHang).length === 0
+                    ? "O"
+                    : Object.keys(gioHang).length
+                }
+                showZero={true}
+              >
+                <div className=" p-2 border border-dotted rounded-full border-black flex justify-center items-center">
+                  <RiShoppingBag3Fill className="text-[28px] text-black" />
+                </div>
+              </Badge>
+            </Popover>
+          </div>
           <div className="p-2 border border-dotted border-black flex justify-center items-center mr-2">
             <FiPhoneCall className="text-[28px] text-black" />
           </div>
@@ -324,15 +343,11 @@ export default function Header() {
               )}
             </p>
           </div>
-        </div> */}
+        </div>
       </div>
-      <ul className="flex ml-[80px] bg-black">
-        <li className="menu-li-desktop flex justify-start items-center font-bold">
-          <GiHamburgerMenu className="p-1 bg-white text-[20px] rounded-full text-black mr-2" />{" "}
-          DANH MỤC SẢN PHẨM
-        </li>
-        <li
-          className="menu-li-desktop"
+      <div className="flex justify-center ">
+        <div
+          className="menu-li-desktop text-[#8D6222] font-bold"
           onClick={() => {
             router.push("/");
             setTimeout(() => {
@@ -341,9 +356,9 @@ export default function Header() {
           }}
         >
           TRANG CHỦ
-        </li>
-        <li
-          className="menu-li-desktop"
+        </div>
+        <div
+          className="menu-li-desktop text-[#8D6222] font-bold"
           onClick={() => {
             router.push("/gioithieu");
             setTimeout(() => {
@@ -352,9 +367,9 @@ export default function Header() {
           }}
         >
           GIỚI THIỆU
-        </li>
-        <li
-          className="menu-li-desktop"
+        </div>
+        <div
+          className="menu-li-desktop text-[#8D6222] font-bold"
           onClick={() => {
             router.push("/salesoff");
             setTimeout(() => {
@@ -363,9 +378,9 @@ export default function Header() {
           }}
         >
           SALES OFF
-        </li>
-        <li
-          className="menu-li-desktop"
+        </div>
+        <div
+          className="menu-li-desktop text-[#8D6222] font-bold"
           onClick={() => {
             router.push("/tintuc");
             setTimeout(() => {
@@ -374,9 +389,9 @@ export default function Header() {
           }}
         >
           TIN TỨC
-        </li>
-        <li
-          className="menu-li-desktop"
+        </div>
+        <div
+          className="menu-li-desktop text-[#8D6222] font-bold"
           onClick={() => {
             router.push("/lienhe");
             setTimeout(() => {
@@ -385,8 +400,8 @@ export default function Header() {
           }}
         >
           LIÊN HỆ
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   );
   return (

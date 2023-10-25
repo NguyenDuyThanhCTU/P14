@@ -22,10 +22,6 @@ export default function Homepage() {
         <SanPhamMoi />
         <ThemSanPham />
         <ThanhToan />
-        <BaiViet />
-        <DanhGia />
-        <CauHoi />
-        <Footer />
       </div>
     </Fragment>
   );

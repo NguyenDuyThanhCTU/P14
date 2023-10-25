@@ -29,25 +29,27 @@ export default function SliderShow() {
     </div>
   );
   const sanPhamLoai = (
-    <ul className="max-w-[60vw] cursor-pointer">
-      {sanphamtheoloai1?.map((data: any) => (
-        <li
-          key={data}
-          className="flex justify-start items-center font-bold py-2 px-5 italic hover:bg-gray-200 hover:rounded-md
+    <>
+      <ul className="max-w-[60vw] cursor-pointer">
+        {sanphamtheoloai1?.map((data: any) => (
+          <li
+            key={data}
+            className="flex justify-start items-center font-bold py-2 px-5 italic hover:bg-gray-200 hover:rounded-md
                 border-b border-dotted hover:text-red-500"
-          onClick={() => {
-            setUid(data.uid);
-            setLoai(data.loai1);
-            router.push(`/san-pham/${data.loai1}/${data.uid}`);
-            setTimeout(() => {
-              window.scroll(0, 0);
-            }, 1000);
-          }}
-        >
-          <IoFishSharp className="mr-5" /> {data.ten.toUpperCase()}
-        </li>
-      ))}
-    </ul>
+            onClick={() => {
+              setUid(data.uid);
+              setLoai(data.loai1);
+              router.push(`/san-pham/${data.loai1}/${data.uid}`);
+              setTimeout(() => {
+                window.scroll(0, 0);
+              }, 1000);
+            }}
+          >
+            <IoFishSharp className="mr-5" /> {data.ten.toUpperCase()}
+          </li>
+        ))}
+      </ul>
+    </>
   );
   const desktopSlider = (
     <div className="flex justify-start items-center cursor-pointer">
