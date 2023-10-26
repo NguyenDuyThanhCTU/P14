@@ -377,13 +377,24 @@ export default function Header() {
         <div
           className="menu-li-desktop text-[#8D6222] font-bold"
           onClick={() => {
-            router.push("/salesoff");
+            router.push("/sanpham");
             setTimeout(() => {
               window.scroll(0, 0);
             }, 1000);
           }}
         >
-          SALES OFF
+          SẢN PHẨM
+        </div>
+        <div
+          className="menu-li-desktop text-[#8D6222] font-bold"
+          onClick={() => {
+            router.push("/doi-tac");
+            setTimeout(() => {
+              window.scroll(0, 0);
+            }, 1000);
+          }}
+        >
+          ĐỐI TÁC
         </div>
         <div
           className="menu-li-desktop text-[#8D6222] font-bold"
@@ -394,7 +405,7 @@ export default function Header() {
             }, 1000);
           }}
         >
-          TIN TỨC
+          TRUYỀN THÔNG
         </div>
         <div
           className="menu-li-desktop text-[#8D6222] font-bold"

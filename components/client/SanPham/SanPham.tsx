@@ -17,6 +17,11 @@ export default function SanPham({ sanpham }: any) {
   const { setThemSanpham } = useFE();
   return (
     <Fragment>
+      <div className="w-full text-center">
+        <h2 className="py-5 text-[24px] font-semibold uppercase">
+          Tất cả sản phẩm
+        </h2>
+      </div>
       <div className="flex flex-wrap md:justify-center justify-center items-center">
         {sanpham?.map((data: any) => (
           <div className="m-2 md:m-10 md:w-[18vw]" key={data.uid}>

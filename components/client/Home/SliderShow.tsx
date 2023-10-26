@@ -18,13 +18,15 @@ export default function SliderShow() {
   const mobileSlider = (
     <div className="m-2">
       {slidershow.map((data: any) => (
-        <img
-          className=""
-          hidden={!data.status}
-          key={data.uid}
-          alt=""
-          src={data.photoURL}
-        />
+        <div className="w-full">
+          <img
+            className="object-contain"
+            hidden={!data.status}
+            key={data.uid}
+            alt=""
+            src={data.photoURL}
+          />
+        </div>
       ))}
     </div>
   );
@@ -78,7 +80,7 @@ export default function SliderShow() {
       <div className="h-[500px]">
         {slidershow.map((data: any) => (
           <img
-            className="h-full object-cover"
+            className="h-full object-contain"
             hidden={!data.status}
             key={data.uid}
             alt=""
