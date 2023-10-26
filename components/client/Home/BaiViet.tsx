@@ -56,8 +56,8 @@ export default function Baiviet() {
     </div>
   );
   return (
-    <Fragment>
-      <div className="border-b-2 border-red-500 mx-2 pt-2">
+    <div className="w-[1470px] mx-auto py-5">
+      <div className="border-b-2 border-red-500  pt-2 ">
         <div className="flex justify-start font-bold">
           <div className="text-white bg-red-500 pt-1 px-2">
             BÀI VIẾT & MẸO VẶT
@@ -65,6 +65,6 @@ export default function Baiviet() {
         </div>
       </div>
       <div>{baiViet}</div>
-    </Fragment>
+    </div>
   );
 }

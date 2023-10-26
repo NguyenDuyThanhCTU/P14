@@ -109,8 +109,8 @@ export default function DanhGia() {
     </div>
   );
   return (
-    <Fragment>
-      <div className="border-b-2 border-red-500 mx-2 pt-2">
+    <div className="w-[1470px] mx-auto">
+      <div className="border-b-2 border-red-500  pt-2  py-5">
         <div className="flex justify-start font-bold">
           <div className="text-white bg-red-500 pt-1 px-2">
             REVIEW & ĐÁNH GIÁ
@@ -121,6 +121,6 @@ export default function DanhGia() {
       <Drawer anchor="top" open={visible} onClose={() => setVisible(false)}>
         {vietDanhgia}
       </Drawer>
-    </Fragment>
+    </div>
   );
 }

@@ -13,10 +13,8 @@ export default function PageTinTuc() {
   return (
     <Fragment>
       <div className="web-bg">
-        <div className="text-white mx-10">
-          <p className="text-center py-10 text-white font-bold text-3xl">
-            Tin Tức
-          </p>
+        <div className=" mx-10">
+          <p className="text-center py-10  font-bold text-3xl">Tin Tức</p>
         </div>
         <ThanhToan />
       </div>

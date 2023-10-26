@@ -21,7 +21,7 @@ export default function Homepage() {
 
   return (
     <Fragment>
-      <div className="web-bg">
+      <div className=" bg-white">
         <SliderShow />
         {dataloai.map((items: any, idx: number) => (
           <div key={idx}>

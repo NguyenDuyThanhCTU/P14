@@ -17,7 +17,7 @@
     @apply p-3 my-5 shadow-md hover:shadow-lg w-full md:w-[20vw]
   }
   .web-bg {
-    @apply h-full bg-gradient-to-tr from-white to-yellow-300
+    @apply h-full bg-white text-black
   }
 }
 body {

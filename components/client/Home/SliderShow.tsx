@@ -52,8 +52,8 @@ export default function SliderShow() {
     </>
   );
   const desktopSlider = (
-    <div className="flex justify-start items-center cursor-pointer">
-      <div className="ml-[80px] h-[500px] bg-white overflow-y-scroll">
+    <div className="flex justify-start items-center cursor-pointer ">
+      <div className="ml-[80px] h-[500px]  overflow-y-auto bg-gray-100 shadow-lg">
         <ul className="w-[20vw]">
           {dataloai.map((data: any) => (
             <Popover key={data.uid} placement="rightTop" content={sanPhamLoai}>

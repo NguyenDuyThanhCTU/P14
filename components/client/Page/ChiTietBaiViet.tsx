@@ -58,7 +58,7 @@ export default function ChiTietBaiViet() {
   );
   return (
     <Fragment>
-      <div className="web-bg">
+      <div className="">
         <SliderShow />
         <div>{chiTiet}</div>
         <ThemSanPham />

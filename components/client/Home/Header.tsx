@@ -256,12 +256,14 @@ export default function Header() {
           <SiGmail className="mr-1" /> {thongtin[0]?.gmail}
         </p>
       </div> */}
-      <div className="px-20 text-[#8D6222]  flex justify-between items-center">
-        <img
-          className="w-[80px] bg-white  rounded-full"
-          alt=""
-          src={thongtin[0]?.logo}
-        />
+      <div className="px-20 text-[#795929]  flex justify-between items-center">
+        <div className="w-[80px] bg-white   rounded-full">
+          <img
+            className=" rounded-full w-full"
+            alt=""
+            src={thongtin[0]?.logo}
+          />
+        </div>
         <div className="bg-white w-1/4 flex rounded-md">
           <Input
             className=" p-1 px-3 outline-none border-none"

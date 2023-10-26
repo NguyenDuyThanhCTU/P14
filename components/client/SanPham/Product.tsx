@@ -10,8 +10,8 @@ const Product = ({ topic }: any) => {
 
   return (
     <>
-      <div className="web-bg">
-        <div className="p-2 bg-gradient-to-tr from-white to-yellow-300 rounded-lg">
+      <div className="bg-white border-b">
+        <div className="p-2 bg-gradient-to-tr rounded-lg">
           <div className="flex justify-center items-center p-3">
             <p className="md:text-3xl text-xl italic text-black font-extrabold">
               {topic}
