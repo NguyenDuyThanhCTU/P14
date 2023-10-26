@@ -3,6 +3,11 @@ import { useData } from "@Context/AppProvider";
 import { Popover } from "antd";
 import React, { Fragment, useContext } from "react";
 import { IoFishSharp } from "react-icons/io5";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 export default function SliderShow() {
   const {
@@ -78,15 +83,31 @@ export default function SliderShow() {
         </ul>
       </div>
       <div className="h-[500px]">
-        {slidershow.map((data: any) => (
-          <img
-            className="h-full object-contain"
-            hidden={!data.status}
-            key={data.uid}
-            alt=""
-            src={data.photoURL}
-          />
-        ))}
+        <Swiper
+          centeredSlides={true}
+          loop={true}
+          slidesPerView={1}
+          slidesPerGroup={1}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          modules={[Autoplay]}
+          className="mySwiper"
+        >
+          {slidershow.map((data: any) => (
+            <SwiperSlide>
+              {" "}
+              <img
+                className="h-full object-contain"
+                hidden={!data.status}
+                key={data.uid}
+                alt=""
+                src={data.photoURL}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );

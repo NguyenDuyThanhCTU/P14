@@ -16,13 +16,13 @@ const layout = ({ children }: { children: React.ReactNode }) => {
     <div className="relative">
       <Header />
       <div className="w-[1470px] mx-auto">{children}</div>
-      {/* <div className="fixed right-0 top-96 z-50">
+      <div className="fixed right-0 top-96 z-50">
         <Hotline />
       </div>
       <Baiviet />
       <DanhGia />
       <CauHoi />
-      <Footer /> */}
+      <Footer />
     </div>
   );
 };
