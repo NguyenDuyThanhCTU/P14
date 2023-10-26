@@ -21,18 +21,32 @@ export default function SliderShow() {
   } = useData();
   const dataloai = loaisanpham.map((data: any) => data).reverse();
   const mobileSlider = (
-    <div className="m-2">
-      {slidershow.map((data: any) => (
-        <div className="w-full">
-          <img
-            className="object-contain"
-            hidden={!data.status}
-            key={data.uid}
-            alt=""
-            src={data.photoURL}
-          />
-        </div>
-      ))}
+    <div className="m-2 w-screen  h-[500px]">
+      <Swiper
+        centeredSlides={true}
+        loop={true}
+        slidesPerView={1}
+        slidesPerGroup={1}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay]}
+        className="mySwiper"
+      >
+        {slidershow.map((data: any, idx: number) => (
+          <SwiperSlide>
+            {" "}
+            <img
+              className="h-full w-full object-contain"
+              hidden={!data.status}
+              key={data.uid}
+              alt=""
+              src={data.photoURL}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
   const sanPhamLoai = (
@@ -59,7 +73,7 @@ export default function SliderShow() {
     </>
   );
   const desktopSlider = (
-    <div className="flex justify-start items-center cursor-pointer ">
+    <div className="flex justify-start items-center cursor-pointer w-max">
       <div className="ml-[80px] h-[500px]  overflow-y-auto bg-gray-100 shadow-lg">
         <ul className="w-[20vw]">
           {dataloai.map((data: any) => (
@@ -82,7 +96,7 @@ export default function SliderShow() {
           ))}
         </ul>
       </div>
-      <div className="h-[500px]">
+      <div className="h-[500px] w-[50vw]">
         <Swiper
           centeredSlides={true}
           loop={true}
@@ -95,11 +109,11 @@ export default function SliderShow() {
           modules={[Autoplay]}
           className="mySwiper"
         >
-          {slidershow.map((data: any) => (
+          {slidershow.map((data: any, idx: number) => (
             <SwiperSlide>
               {" "}
               <img
-                className="h-full object-contain"
+                className="h-full w-full object-contain"
                 hidden={!data.status}
                 key={data.uid}
                 alt=""

@@ -28,9 +28,11 @@ export default function Homepage() {
             <Product topic={items.loai1} />
           </div>
         ))}
+
         {/* <SanPhamKhuyenMai />
         <SanPhamNoiBat />
         <SanPhamMoi /> */}
+
         <ThemSanPham />
         <ThanhToan />
       </div>
