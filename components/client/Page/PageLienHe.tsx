@@ -1,15 +1,7 @@
 "use client";
 import React, { Fragment } from "react";
-import { useContext } from "react";
 import "react-quill/dist/quill.bubble.css";
-import Header from "../Home/Header";
-import SanPham from "../SanPham/SanPham";
-import ThemSanPham from "../SanPham/ThemSanPham";
-import SliderShow from "../Home/SliderShow";
 import ThanhToan from "../Home/ThanhToan";
-import DanhGia from "../Home/DanhGia";
-import CauHoi from "../Home/CauHoi";
-import Footer from "../Home/Footer";
 import { useData } from "@Context/AppProvider";
 
 export default function PageLienHe() {
@@ -18,7 +10,9 @@ export default function PageLienHe() {
     <Fragment>
       <div className="web-bg">
         <div className="text-black mx-10">
-          <p className="text-center text-black font-bold text-3xl">Liên hệ</p>
+          <p className="text-center text-black font-bold text-3xl py-10">
+            Liên hệ
+          </p>
           <p>{thongtin[0]?.ten}</p>
           <p>
             Chuyên cung cấp - buôn bán sỉ lẽ các loại hải sản khô như mực khô,

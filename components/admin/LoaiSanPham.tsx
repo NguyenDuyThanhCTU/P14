@@ -1,9 +1,9 @@
 "use client";
-import { Button, Divider, Drawer } from "@mui/material";
+import { Divider, Drawer } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import { Form, Input, Popconfirm, Tag } from "antd";
+import { Button, Form, Input, Popconfirm, Tag } from "antd";
 import moment from "moment";
-import React, { Fragment, useContext, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { BsMenuButtonWideFill } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
@@ -14,7 +14,7 @@ import {
   delDocument,
   updDocument,
 } from "../../firebase/services";
-import { AppContext, useData } from "./../../Context/AppProvider";
+import { useData } from "./../../Context/AppProvider";
 
 export default function LoaiSanPham() {
   const { uid, setUid, loaisanpham, loaisanphamSelected, thongbaoSucess } =
@@ -92,35 +92,29 @@ export default function LoaiSanPham() {
     <div className="border rounded-md m-5 p-3">
       <p className="font-bold text-xl text-blue-500 text-center">TÍNH NĂNG</p>
       <div className="mx-10 my-2">
-        <Button variant="contained" color="secondary" fullWidth>
-          DANH SÁCH
-        </Button>
+        <Button>DANH SÁCH</Button>
       </div>
       <div className="mx-10 my-2">
-        <Button
-          variant="contained"
-          color="primary"
-          fullWidth
-          onClick={() => setOpenadd(true)}
-        >
-          THÊM NỘI DUNG
-        </Button>
+        <Button onClick={() => setOpenadd(true)}>THÊM NỘI DUNG</Button>
       </div>
       <div className="mx-10 my-2">
         <Popconfirm
           title="Xác nhận xoá tất cả nội dung ?"
           onConfirm={() => delAllDocument("loaisanpham")}
         >
-          <Button variant="contained" color="error" fullWidth>
-            XOÁ TẤT CẢ
-          </Button>
+          <Button>XOÁ TẤT CẢ</Button>
         </Popconfirm>
       </div>
     </div>
   );
-  const handleAdd = () => {
+  const handleAdd = (values: any) => {
+    for (let key in values) {
+      if (values[key] === undefined || values[key] === "") {
+        delete values[key];
+      }
+    }
     addDocument("loaisanpham", {
-      ...formAdd.getFieldValue("add"),
+      ...values,
       loai2: loai2,
     });
     setOpenadd(false);
@@ -133,7 +127,7 @@ export default function LoaiSanPham() {
       <p className="text-lg font-bold text-blue-500 m-2 text-center">
         THÊM NỘI DUNG MỚI
       </p>
-      <Form form={formAdd} layout="vertical">
+      <Form onFinish={handleAdd} layout="vertical">
         <Form.Item label="Loại sản phẩm :" name="loai1">
           <Input className="rounded-lg" placeholder="Loại lớp 1..." />
         </Form.Item>
@@ -145,7 +139,6 @@ export default function LoaiSanPham() {
               onChange={(e) => setLoai(e.target.value)}
             />
             <Button
-              variant="contained"
               onClick={() => setLoai2((prevState: any) => [...prevState, loai])}
             >
               THÊM
@@ -157,9 +150,7 @@ export default function LoaiSanPham() {
             ))}
           </div>
         </Form.Item>
-        <Button variant="contained" fullWidth onClick={handleAdd}>
-          THÊM NỘI DUNG MỚI
-        </Button>
+        <Button htmlType="submit">THÊM NỘI DUNG MỚI</Button>
       </Form>
     </div>
   );
@@ -195,7 +186,6 @@ export default function LoaiSanPham() {
                 onChange={(e) => setLoai(e.target.value)}
               />
               <Button
-                variant="contained"
                 onClick={() =>
                   setLoai2((prevState: any) => [...prevState, loai])
                 }
@@ -209,9 +199,7 @@ export default function LoaiSanPham() {
               ))}
             </div>
           </Form.Item>
-          <Button variant="contained" fullWidth onClick={handleEdit}>
-            CẬP NHẬT NỘI DUNG
-          </Button>
+          <Button onClick={handleEdit}>CẬP NHẬT NỘI DUNG</Button>
         </Form>
       ))}
     </div>

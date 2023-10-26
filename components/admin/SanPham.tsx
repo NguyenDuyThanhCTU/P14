@@ -1,7 +1,8 @@
 "use client";
 import { Button, Divider, Drawer } from "@mui/material";
+import { Button as AntButton, Form, Input, Popconfirm, Popover } from "antd";
+
 import { DataGrid } from "@mui/x-data-grid";
-import { Form, Input, Popconfirm, Popover } from "antd";
 import moment from "moment";
 import React, { Fragment, useContext, useState } from "react";
 import { AiFillDelete, AiOutlineShoppingCart } from "react-icons/ai";
@@ -223,29 +224,34 @@ export default function SanPham() {
       </div>
     </div>
   );
-  const handleAdd = () => {
-    if (photoURL === "") {
-      thongbaoError("Chưa Upload hình ảnh lên !!");
-    } else {
-      addDocument("sanpham", {
-        ...formAdd.getFieldValue("add"),
-        photoURL: photoURL,
-        editor: editor === undefined ? "" : editor,
-      });
-      setOpenadd(false);
-      thongbaoSucess("sản phẩm");
-      formAdd.resetFields();
-      setPhotoURL("");
-      setEditor({ value: null });
-      setUid("");
+  const handleAdd = (values: any) => {
+    for (let key in values) {
+      if (values[key] === undefined || values[key] === "") {
+        delete values[key];
+      }
     }
+    // if (photoURL === "") {
+    //   thongbaoError("Chưa Upload hình ảnh lên !!");
+    // } else {
+    addDocument("sanpham", {
+      ...values,
+      photoURL: photoURL,
+      editor: editor === undefined ? "" : editor,
+    });
+    setOpenadd(false);
+    thongbaoSucess("sản phẩm");
+    values.resetFields();
+    setPhotoURL("");
+    setEditor({ value: null });
+    setUid("");
+    // }
   };
   const addContent = (
     <div className="mx-5 my-2 w-[75vw] md:w-[80vw]">
       <p className="text-lg font-bold text-blue-500 m-2 text-center">
         THÊM NỘI DUNG MỚI
       </p>
-      <Form form={formAdd} layout="vertical">
+      <Form onFinish={handleAdd} layout="vertical">
         <Form.Item label="Tên sản phẩm :" name="ten">
           <Input className="rounded-lg" placeholder="Tên sản phẩm..." />
         </Form.Item>
@@ -342,28 +348,32 @@ export default function SanPham() {
         <Form.Item label="Viết bài viết mô tả :">
           <TextEditor />
         </Form.Item>
-        <Button variant="contained" fullWidth onClick={handleAdd}>
-          THÊM NỘI DUNG MỚI
-        </Button>
+        <AntButton htmlType="submit">THÊM NỘI DUNG MỚI</AntButton>
       </Form>
     </div>
   );
-  const handleEdit = () => {
-    if (photoURL === "") {
-      thongbaoError("Chưa Upload hình ảnh lên !!");
-    } else {
-      updDocument("sanpham", uid, {
-        ...formUpdate.getFieldValue("update"),
-        photoURL: photoURL,
-        editor: editor === undefined ? "" : editor,
-      });
-      setOpenedit(false);
-      thongbaoSucess("sản phẩm");
-      formUpdate.resetFields();
-      setPhotoURL("");
-      setEditor({ value: null });
-      setUid("");
+  const handleEdit = (values: any) => {
+    for (let key in values) {
+      if (values[key] === undefined || values[key] === "") {
+        delete values[key];
+      }
     }
+
+    // if (photoURL === "") {
+    //   thongbaoError("Chưa Upload hình ảnh lên !!");
+    // } else {
+    updDocument("sanpham", uid, {
+      ...values,
+      photoURL: photoURL,
+      editor: editor === undefined ? "" : editor,
+    });
+    setOpenedit(false);
+    thongbaoSucess("sản phẩm");
+    values.resetFields();
+    setPhotoURL("");
+    setEditor({ value: null });
+    setUid("");
+    // }
   };
   const editContent = (
     <div className="mx-5 my-2 w-[75vw] md:w-[80vw]">
@@ -371,7 +381,7 @@ export default function SanPham() {
         CHỈNH SỬA NỘI DUNG
       </p>
       {sanphamSelected?.map((data: any) => (
-        <Form key={data.uid} form={formUpdate} layout="vertical">
+        <Form key={data.uid} onFinish={handleEdit} layout="vertical">
           <Form.Item label="Tên sản phẩm :" name="ten">
             <Input
               defaultValue={data.ten}
@@ -483,9 +493,8 @@ export default function SanPham() {
           <Form.Item label="Viết bài viết mô tả :">
             <TextEditor />
           </Form.Item>
-          <Button variant="contained" fullWidth onClick={handleEdit}>
-            CẬP NHẬT NỘI DUNG
-          </Button>
+
+          <AntButton htmlType="submit"> CẬP NHẬT NỘI DUNG</AntButton>
         </Form>
       ))}
     </div>

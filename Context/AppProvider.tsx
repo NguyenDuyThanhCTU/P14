@@ -206,7 +206,6 @@ export const AppProvider: React.FC<Props> = ({ children }) => {
   const phanhoi = useCollection("phanhoi");
   const tukhoa = useCollection("tukhoa");
   const cauhoi = useCollection("cauhoi");
-
   const slidershowSelected = slidershow.filter((obj: any) => {
     return obj.uid === uid;
   });

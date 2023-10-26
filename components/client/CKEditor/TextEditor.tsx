@@ -7,8 +7,9 @@ const TextEditor = () => {
   const editorRef = useRef<any>();
   const [editorLoaded, setEditorLoaded] = useState(false);
   const { CKEditor, ClassicEditor }: any = editorRef.current || {};
+  const [editorData, setEditorData] = useState<any>();
 
-  const { editor, setEditor } = useData();
+  const { setEditor } = useData();
 
   useEffect(() => {
     editorRef.current = {
@@ -56,9 +57,10 @@ const TextEditor = () => {
         <CKEditor
           editor={ClassicEditor}
           config={{ extraPlugins: [uploadPlugin] }}
-          data={editor}
+          data={editorData}
           onChange={(event: any, editor: any) => {
             const data = editor.getData();
+            setEditorData(data);
             setEditor(data);
           }}
         />

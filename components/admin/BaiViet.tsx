@@ -1,7 +1,8 @@
 "use client";
 import { Button, Divider, Drawer } from "@mui/material";
+import { Button as AntButton, Form, Input, Popconfirm, Popover } from "antd";
 import { DataGrid } from "@mui/x-data-grid";
-import { Form, Input, Popconfirm, Popover } from "antd";
+
 import moment from "moment";
 import React, { Fragment, useContext, useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
@@ -19,7 +20,6 @@ import {
 import { AppContext } from "./../../Context/AppProvider";
 
 import "react-quill/dist/quill.snow.css";
-import dynamic from "next/dynamic";
 import TextEditor from "@components/client/CKEditor/TextEditor";
 
 export default function BaiViet() {
@@ -188,29 +188,35 @@ export default function BaiViet() {
       </div>
     </div>
   );
-  const handleAdd = () => {
-    if (photoURL === "") {
-      thongbaoError("Chưa Upload hình ảnh lên !!");
-    } else {
-      addDocument("baiviet", {
-        ...formAdd.getFieldValue("add"),
-        photoURL: photoURL,
-        editor: editor === undefined ? "" : editor,
-      });
-      setOpenadd(false);
-      thongbaoSucess("bài viết");
-      formAdd.resetFields();
-      setPhotoURL("");
-      setEditor({ value: null });
-      setUid("");
+  const handleAdd = (values: any) => {
+    for (let key in values) {
+      if (values[key] === undefined || values[key] === "") {
+        delete values[key];
+      }
     }
+    // if (photoURL === "") {
+    //   thongbaoError("Chưa Upload hình ảnh lên !!");
+    // } else {
+    addDocument("baiviet", {
+      ...values,
+      photoURL: photoURL,
+      editor: editor === undefined ? "" : editor,
+    });
+    setOpenadd(false);
+    thongbaoSucess("bài viết");
+
+    values.resetFields();
+    setPhotoURL("");
+    setEditor({ value: null });
+    setUid("");
+    // }
   };
   const addContent = (
     <div className="mx-5 my-2 w-[75vw] md:w-[75vw]">
       <p className="text-lg font-bold text-blue-500 m-2 text-center">
         THÊM NỘI DUNG MỚI
       </p>
-      <Form form={formAdd} layout="vertical">
+      <Form onFinish={handleAdd} layout="vertical">
         <Form.Item label="Tiêu đề :" name="tieude">
           <Input className="rounded-lg" placeholder="Tiêu đề bài viết..." />
         </Form.Item>
@@ -244,28 +250,33 @@ export default function BaiViet() {
         <Form.Item label="Viết bài viết mô tả :">
           <TextEditor />
         </Form.Item>
-        <Button variant="contained" fullWidth onClick={handleAdd}>
-          THÊM NỘI DUNG MỚI
-        </Button>
+        <AntButton htmlType="submit">THÊM NỘI DUNG MỚI</AntButton>
       </Form>
     </div>
   );
-  const handleEdit = () => {
-    if (photoURL === "") {
-      thongbaoError("Chưa Upload hình ảnh lên !!");
-    } else {
-      updDocument("baiviet", uid, {
-        ...formUpdate.getFieldValue("update"),
-        photoURL: photoURL,
-        editor: editor === undefined ? "" : editor,
-      });
-      setOpenedit(false);
-      thongbaoSucess("bài viết");
-      formUpdate.resetFields();
-      setPhotoURL("");
-      setEditor({ value: null });
-      setUid("");
+
+  const handleEdit = (values: any) => {
+    for (let key in values) {
+      if (values[key] === undefined || values[key] === "") {
+        delete values[key];
+      }
     }
+
+    // if (photoURL === "") {
+    //   thongbaoError("Chưa Upload hình ảnh lên !!");
+    // } else {
+    updDocument("baiviet", uid, {
+      ...values,
+      photoURL: photoURL,
+      editor: editor === undefined ? "" : editor,
+    });
+    setOpenedit(false);
+    thongbaoSucess("bài viết");
+    values.resetFields();
+    setPhotoURL("");
+    setEditor({ value: null });
+    setUid("");
+    // }
   };
   const editContent = (
     <div className="mx-5 my-2 w-[75vw] md:w-[75vw]">
@@ -273,7 +284,7 @@ export default function BaiViet() {
         CHỈNH SỬA NỘI DUNG
       </p>
       {baivietSelected.map((data: any) => (
-        <Form key={data.uid} form={formUpdate} layout="vertical">
+        <Form key={data.uid} onFinish={handleEdit} layout="vertical">
           <Form.Item label="Tiêu đề :" name="tieude">
             <Input
               defaultValue={data.tieude}
@@ -315,9 +326,7 @@ export default function BaiViet() {
           <Form.Item label="Viết bài viết mô tả :">
             <TextEditor />
           </Form.Item>
-          <Button variant="contained" fullWidth onClick={handleEdit}>
-            CẬP NHẬT NỘI DUNG
-          </Button>
+          <AntButton htmlType="submit">CẬP NHẬT NỘI DUNG</AntButton>
         </Form>
       ))}
     </div>

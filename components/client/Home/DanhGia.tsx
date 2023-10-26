@@ -1,5 +1,14 @@
 "use client";
-import { Avatar, Comment, Form, Input, Tooltip, Rate, message } from "antd";
+import {
+  Avatar,
+  Comment,
+  Form,
+  Input,
+  Tooltip,
+  Rate,
+  message,
+  Button as AntButton,
+} from "antd";
 import React, { Fragment, useState } from "react";
 import { useContext } from "react";
 import moment from "moment";
@@ -11,9 +20,16 @@ export default function DanhGia() {
   const { danhgia, sanpham } = useData();
   const [visible, setVisible] = useState(false);
   const [form] = Form.useForm();
-  const handleAdd = () => {
+
+  const handleAdd = (values: any) => {
+    for (let key in values) {
+      if (values[key] === undefined || values[key] === "") {
+        delete values[key];
+      }
+    }
+
     addDocument("danhgia", {
-      ...form.getFieldValue("add"),
+      ...values,
     });
     setVisible(false);
     message.success("Gửi đánh giá thành công !");
@@ -66,7 +82,7 @@ export default function DanhGia() {
   );
   const vietDanhgia = (
     <div className="m-5 h-[80vh]">
-      <Form form={form} layout="vertical">
+      <Form onFinish={handleAdd} layout="vertical">
         <Form.Item label="Họ và tên :" name="ten">
           <Input required className="rounded-lg" placeholder="Họ và tên..." />
         </Form.Item>
@@ -88,9 +104,7 @@ export default function DanhGia() {
         <Form.Item label="Vài lời nhận xét :" name="noidung">
           <Input.TextArea className="rounded-lg" placeholder="Nhận xét..." />
         </Form.Item>
-        <Button variant="contained" fullWidth onClick={handleAdd}>
-          GỬI ĐÁNH GIÁ
-        </Button>
+        <AntButton htmlType="submit">GỬI ĐÁNH GIÁ</AntButton>
       </Form>
     </div>
   );

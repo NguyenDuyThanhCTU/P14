@@ -5,13 +5,15 @@ import { Divider, Input } from "antd";
 import React, { Fragment, useContext, useEffect, useState } from "react";
 import { IoMdContact } from "react-icons/io";
 import { MdWeb } from "react-icons/md";
-import { updAllDocument } from "../../firebase/services";
+import { updAllDocument, uploadFile } from "../../firebase/services";
 import { AppContext, useData } from "@Context/AppProvider";
 
 export default function CauHinhChung() {
   const { thongtin, thongbaoSucess } = useData();
   const [logo, setLogo] = useState<string>("");
   const [ten, setTen] = useState<string>("");
+  const [logoUrl, setLogoUrl] = useState("");
+
   const [tenmien, setTenmien] = useState<string>("");
   const [sdtchinh, setSdtchinh] = useState<string>("");
   const [sdtphu, setSdtphu] = useState<string>("");
@@ -47,16 +49,25 @@ export default function CauHinhChung() {
   const thongtinWeb = (
     <div className="my-5 md:flex md:items-center md:justify-around">
       <div className="p-3 m-2 shadow-md hover:shadow-lg">
-        <img alt="" src={logo} />
+        <img alt="" src={logoUrl ? logoUrl : logo} />
         <div>
           <Button
             variant="contained"
             component="label"
             color="primary"
             fullWidth
+            onClick={() => {
+              updAllDocument("thongtin", { logo: logoUrl });
+              thongbaoSucess("Logo");
+            }}
           >
             Thay đổi Logo
-            <input hidden accept="image/*" type="file" />
+            <input
+              hidden
+              accept="image/*"
+              type="file"
+              onChange={(e) => uploadFile("thongtin", e, setLogoUrl)}
+            />
           </Button>
         </div>
       </div>

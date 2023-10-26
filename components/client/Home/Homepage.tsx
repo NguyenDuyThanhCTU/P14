@@ -11,15 +11,26 @@ import Footer from "./Footer";
 import Header from "./Header";
 import SliderShow from "./SliderShow";
 import ThanhToan from "./ThanhToan";
+import { useData } from "@Context/AppProvider";
+import Product from "../SanPham/Product";
 
 export default function Homepage() {
+  const { loaisanpham } = useData();
+
+  const dataloai = loaisanpham.map((data: any) => data).reverse();
+
   return (
     <Fragment>
       <div className="web-bg">
         <SliderShow />
-        <SanPhamKhuyenMai />
+        {dataloai.map((items: any, idx: number) => (
+          <div key={idx}>
+            <Product topic={items.loai1} />
+          </div>
+        ))}
+        {/* <SanPhamKhuyenMai />
         <SanPhamNoiBat />
-        <SanPhamMoi />
+        <SanPhamMoi /> */}
         <ThemSanPham />
         <ThanhToan />
       </div>

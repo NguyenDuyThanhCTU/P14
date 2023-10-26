@@ -1,7 +1,7 @@
 "use client";
 import { Button, Divider, Drawer } from "@mui/material";
+import { Button as AntButton, Form, Input, Popconfirm, Popover } from "antd";
 import { DataGrid } from "@mui/x-data-grid";
-import { Form, Input, Popconfirm } from "antd";
 import moment from "moment";
 import React, { Fragment, useContext, useState } from "react";
 import { AiFillDelete, AiOutlineQuestionCircle } from "react-icons/ai";
@@ -159,34 +159,43 @@ export default function CauHoi() {
       </div>
     </div>
   );
-  const handleAdd = () => {
+  const handleAdd = (values: any) => {
+    for (let key in values) {
+      if (values[key] === undefined || values[key] === "") {
+        delete values[key];
+      }
+    }
     addDocument("cauhoi", {
-      ...formAdd.getFieldValue("add"),
+      ...values,
     });
     setOpenadd(false);
     thongbaoSucess("câu hỏi");
     formAdd.resetFields();
     setUid("");
   };
+
   const addContent = (
     <div className="mx-5 my-2 w-[75vw] md:w-[80vw]">
       <p className="text-lg font-bold text-blue-500 m-2 text-center">
         THÊM NỘI DUNG MỚI
       </p>
-      <Form form={formAdd} layout="vertical">
+      <Form onFinish={handleAdd} layout="vertical">
         <Form.Item label="Câu hỏi :" name="cauhoi">
           <Input.TextArea className="rounded-lg" placeholder="Câu hỏi..." />
         </Form.Item>
         <Form.Item label="Câu trả lời :" name="cautraloi">
           <Input.TextArea className="rounded-lg" placeholder="Câu trả lời..." />
         </Form.Item>
-        <Button variant="contained" fullWidth onClick={handleAdd}>
-          THÊM NỘI DUNG MỚI
-        </Button>
+        <AntButton htmlType="submit">THÊM NỘI DUNG MỚI</AntButton>
       </Form>
     </div>
   );
-  const handleEdit = () => {
+  const handleEdit = (values: any) => {
+    for (let key in values) {
+      if (values[key] === undefined || values[key] === "") {
+        delete values[key];
+      }
+    }
     updDocument("cauhoi", uid, {
       ...formUpdate.getFieldValue("update"),
     });
@@ -201,7 +210,7 @@ export default function CauHoi() {
         CHỈNH SỬA NỘI DUNG
       </p>
       {cauhoiSelected.map((data: any) => (
-        <Form key={data.uid} form={formUpdate} layout="vertical">
+        <Form key={data.uid} onFinish={handleEdit} layout="vertical">
           <Form.Item label="Câu hỏi :" name="cauhoi">
             <Input.TextArea
               defaultValue={data.cauhoi}
@@ -216,9 +225,7 @@ export default function CauHoi() {
               placeholder="Câu trả lời..."
             />
           </Form.Item>
-          <Button variant="contained" fullWidth onClick={handleEdit}>
-            CẬP NHẬT NỘI DUNG
-          </Button>
+          <AntButton htmlType="submit">CẬP NHẬT NỘI DUNG</AntButton>
         </Form>
       ))}
     </div>

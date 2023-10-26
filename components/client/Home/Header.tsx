@@ -257,7 +257,11 @@ export default function Header() {
         </p>
       </div> */}
       <div className="px-20 text-[#8D6222]  flex justify-between items-center">
-        <img className="w-[80px]" alt="" src={thongtin[0]?.logo} />
+        <img
+          className="w-[80px] bg-white  rounded-full"
+          alt=""
+          src={thongtin[0]?.logo}
+        />
         <div className="bg-white w-1/4 flex rounded-md">
           <Input
             className=" p-1 px-3 outline-none border-none"
