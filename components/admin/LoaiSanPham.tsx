@@ -7,7 +7,6 @@ import React, { Fragment, useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { BsMenuButtonWideFill } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
-import "react-quill/dist/quill.snow.css";
 import {
   addDocument,
   delAllDocument,

@@ -109,7 +109,7 @@ export default function PopUp() {
           </Badge>
         </Popover>
       </div>
-      <div className="fixed z-50 bottom-5 right-5 w-[50px] cursor-pointer">
+      <div className="fixed z-50 bottom-0 right-5 w-[50px] cursor-pointer">
         <div className="flex flex-col items-center justify-center">
           <div className="mb-5">
             <img

@@ -1,6 +1,5 @@
 "use client";
 import React, { Fragment, useContext } from "react";
-import "react-quill/dist/quill.bubble.css";
 import Header from "../Home/Header";
 import SanPham from "../SanPham/SanPham";
 import ThemSanPham from "../SanPham/ThemSanPham";

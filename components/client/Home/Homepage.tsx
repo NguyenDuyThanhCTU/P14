@@ -20,11 +20,14 @@ export default function Homepage() {
   const dataloai = loaisanpham.map((data: any) => data).reverse();
 
   return (
-    <Fragment>
-      <div className=" bg-white">
-        <SliderShow />
+    <div className="">
+      <div className=" ">
+        <div className="py-5">
+          <SliderShow />
+        </div>
+
         {dataloai.map((items: any, idx: number) => (
-          <div key={idx}>
+          <div key={idx} className="">
             <Product topic={items.loai1} />
           </div>
         ))}
@@ -36,6 +39,6 @@ export default function Homepage() {
         <ThemSanPham />
         <ThanhToan />
       </div>
-    </Fragment>
+    </div>
   );
 }

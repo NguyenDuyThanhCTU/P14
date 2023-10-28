@@ -19,7 +19,6 @@ import {
 } from "../../firebase/services";
 import { AppContext } from "./../../Context/AppProvider";
 
-import "react-quill/dist/quill.snow.css";
 import TextEditor from "@components/client/CKEditor/TextEditor";
 
 export default function BaiViet() {

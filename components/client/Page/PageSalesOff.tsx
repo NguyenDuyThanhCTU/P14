@@ -1,6 +1,5 @@
 "use client";
 import React, { Fragment } from "react";
-import "react-quill/dist/quill.bubble.css";
 import { useData } from "@Context/AppProvider";
 import SanPham from "../SanPham/SanPham";
 import ThemSanPham from "../SanPham/ThemSanPham";

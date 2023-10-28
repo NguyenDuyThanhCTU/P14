@@ -10,10 +10,10 @@ const Product = ({ topic }: any) => {
 
   return (
     <>
-      <div className="bg-white border-b">
+      <div className="bg-[url(https://pics.freeartbackgrounds.com/fullhd/Azure_Blue_Sea_Background-775.jpg)]  border-b">
         <div className="p-2 bg-gradient-to-tr rounded-lg">
           <div className="flex justify-center items-center p-3">
-            <p className="md:text-3xl text-xl italic text-black font-extrabold">
+            <p className="md:text-3xl text-xl italic text-white font-extrabold">
               {topic}
             </p>
           </div>

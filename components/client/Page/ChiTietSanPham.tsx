@@ -6,7 +6,6 @@ import { Badge } from "antd";
 import { useParams } from "next/navigation";
 import React, { Fragment, useContext } from "react";
 import { RiShoppingCartFill } from "react-icons/ri";
-import "react-quill/dist/quill.bubble.css";
 
 import Header from "../Home/Header";
 import SanPham from "../SanPham/SanPham";

@@ -15,15 +15,6 @@ export default function ChiTietBaiViet() {
         <div
           dangerouslySetInnerHTML={{ __html: baivietSelected[0]?.editor }}
         ></div>
-        {/* {baivietSelected?.map((data: any) => (
-          <div key={data.uid}>
-            <ReactQuill
-              value={data.editor.value}
-              readOnly={true}
-              theme={"bubble"}
-            />
-          </div>
-        ))} */}
       </div>
       <div className="p-2 md:w-[30vw] shadow-lg border rounded-lg m-2">
         <p className="text-center text-2xl font-extrabold italic text-orange-500">

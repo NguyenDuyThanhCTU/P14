@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import Link from "next/link";
 
 export default function SliderShow() {
   const {
@@ -18,6 +19,7 @@ export default function SliderShow() {
     setLoai,
     setUid,
     router,
+    thongtin,
   } = useData();
   const dataloai = loaisanpham.map((data: any) => data).reverse();
   const mobileSlider = (
@@ -73,9 +75,9 @@ export default function SliderShow() {
     </>
   );
   const desktopSlider = (
-    <div className="flex justify-start items-center cursor-pointer w-max">
-      <div className="ml-[80px] h-[500px]  overflow-y-auto bg-gray-100 shadow-lg">
-        <ul className="w-[20vw]">
+    <div className="grid grid-cols-6 justify-start items-center cursor-pointer w-full">
+      <div className=" h-[500px] w-max overflow-y-auto bg-gray-100 shadow-lg">
+        <ul className="w-max">
           {dataloai.map((data: any) => (
             <Popover key={data.uid} placement="rightTop" content={sanPhamLoai}>
               <li
@@ -96,7 +98,7 @@ export default function SliderShow() {
           ))}
         </ul>
       </div>
-      <div className="h-[500px] w-[50vw]">
+      <div className="h-[500px]  col-span-3">
         <Swiper
           centeredSlides={true}
           loop={true}
@@ -122,6 +124,13 @@ export default function SliderShow() {
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
+      <div className="col-span-2">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/thongtin%2Fa.png?alt=media&token=1556850b-6413-4688-ac02-035f159f3634"
+          alt="banner"
+          className="w-full"
+        />
       </div>
     </div>
   );

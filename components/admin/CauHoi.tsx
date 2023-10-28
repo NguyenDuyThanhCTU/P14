@@ -8,7 +8,6 @@ import { AiFillDelete, AiOutlineQuestionCircle } from "react-icons/ai";
 import { BiHide } from "react-icons/bi";
 import { BsFillArrowUpCircleFill } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
-import "react-quill/dist/quill.snow.css";
 import {
   addDocument,
   delAllDocument,
