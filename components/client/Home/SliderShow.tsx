@@ -75,8 +75,8 @@ export default function SliderShow() {
     </>
   );
   const desktopSlider = (
-    <div className="grid grid-cols-6 justify-start items-center cursor-pointer w-full">
-      <div className=" h-[500px] w-max overflow-y-auto bg-gray-100 shadow-lg">
+    <div className="grid grid-cols-7 gap-5 justify-start items-center cursor-pointer w-full">
+      {/* <div className=" h-[500px] w-max overflow-y-auto bg-gray-100 shadow-lg">
         <ul className="w-max">
           {dataloai.map((data: any) => (
             <Popover key={data.uid} placement="rightTop" content={sanPhamLoai}>
@@ -97,8 +97,15 @@ export default function SliderShow() {
             </Popover>
           ))}
         </ul>
+      </div> */}
+      <div className="col-span-2">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2F18.png?alt=media&token=32360607-ee35-48ef-81dd-1462f0d9926d"
+          alt="banner"
+          className="w-full"
+        />
       </div>
-      <div className="h-[500px]  col-span-3">
+      <div className="  col-span-3">
         <Swiper
           centeredSlides={true}
           loop={true}
@@ -114,20 +121,27 @@ export default function SliderShow() {
           {slidershow.map((data: any, idx: number) => (
             <SwiperSlide>
               {" "}
-              <img
-                className="h-full w-full object-contain"
-                hidden={!data.status}
-                key={data.uid}
-                alt=""
-                src={data.photoURL}
-              />
+              <Link
+                href={"/sanpham"}
+                className="h-full flex items-center  justify-center w-full"
+              >
+                <div className="w-full h-full py-2 rounded-3xl ">
+                  <img
+                    className="w-full h-full object-contain rounded-3xl"
+                    hidden={!data.status}
+                    key={data.uid}
+                    alt=""
+                    src={data.photoURL}
+                  />
+                </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
       <div className="col-span-2">
         <img
-          src="https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/thongtin%2Fa.png?alt=media&token=1556850b-6413-4688-ac02-035f159f3634"
+          src="https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2F13.png?alt=media&token=198b472c-f1b5-4e87-bc45-f532952302ea"
           alt="banner"
           className="w-full"
         />
