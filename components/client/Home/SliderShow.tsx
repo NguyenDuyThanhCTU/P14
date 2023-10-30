@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Link from "next/link";
+import SlideItem from "../Items/SlideItem";
 
 export default function SliderShow() {
   const {
@@ -22,9 +23,10 @@ export default function SliderShow() {
     thongtin,
   } = useData();
   const dataloai = loaisanpham.map((data: any) => data).reverse();
+
   const mobileSlider = (
     <div className="m-2 w-screen  h-[500px]">
-      <Swiper
+      {/* <Swiper
         centeredSlides={true}
         loop={true}
         slidesPerView={1}
@@ -48,7 +50,7 @@ export default function SliderShow() {
             />
           </SwiperSlide>
         ))}
-      </Swiper>
+      </Swiper> */}
     </div>
   );
   const sanPhamLoai = (
@@ -75,7 +77,7 @@ export default function SliderShow() {
     </>
   );
   const desktopSlider = (
-    <div className="grid grid-cols-7 gap-5 justify-start items-center cursor-pointer w-full">
+    <div className="grid grid-cols-7 gap-5 justify-start items-start cursor-pointer w-full">
       {/* <div className=" h-[500px] w-max overflow-y-auto bg-gray-100 shadow-lg">
         <ul className="w-max">
           {dataloai.map((data: any) => (
@@ -105,8 +107,42 @@ export default function SliderShow() {
           className="w-full"
         />
       </div>
-      <div className="  col-span-3">
-        <Swiper
+      <div className="  col-span-3 flex flex-col gap-4 ">
+        <SlideItem
+          Background={
+            "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2F2.png?alt=media&token=dc65eddb-6ede-4c91-b798-e2a38aaf9947"
+          }
+          Data={slidershow?.filter(
+            (items: any) => items.type === "agricultural"
+          )}
+        />
+        <SlideItem
+          Background={
+            "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2F3.png?alt=media&token=311a4484-dda9-4006-804a-9d1b3371685c"
+          }
+          Data={slidershow?.filter((items: any) => items.type === "rice")}
+        />
+
+        <SlideItem
+          Background={
+            "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2F4.png?alt=media&token=5bae338e-c83a-4fa2-8fab-c8a7b7b3e6fa"
+          }
+          Data={slidershow?.filter((items: any) => items.type === "driedsquid")}
+        />
+
+        <SlideItem
+          Background={
+            "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2F5.png?alt=media&token=e58e0952-14b4-4847-a310-9669264a7376"
+          }
+          Data={slidershow?.filter((items: any) => items.type === "freshsquid")}
+        />
+        <SlideItem
+          Background={
+            "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2FPicture1.png?alt=media&token=24d55bf5-4c30-49ec-bba7-ed4a59664146"
+          }
+          Data={slidershow?.filter((items: any) => items.type === "seafood")}
+        />
+        {/* <Swiper
           centeredSlides={true}
           loop={true}
           slidesPerView={1}
@@ -137,7 +173,7 @@ export default function SliderShow() {
               </Link>
             </SwiperSlide>
           ))}
-        </Swiper>
+        </Swiper> */}
       </div>
       <div className="col-span-2">
         <img

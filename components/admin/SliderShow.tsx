@@ -6,7 +6,14 @@ import { BsFillArrowUpCircleFill } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { Button, Divider, Drawer } from "@mui/material";
-import { Form, Input, Popconfirm, Popover } from "antd";
+import {
+  Button as AntButton,
+  Form,
+  Input,
+  Popconfirm,
+  Popover,
+  Radio,
+} from "antd";
 import moment from "moment";
 import {
   addDocument,
@@ -29,15 +36,18 @@ export default function SliderShow(props: SliderShowProps) {
     thongbaoSucess,
     thongbaoError,
   } = useData();
+
   const [status, setStatus] = useState<any>();
   const [photoURL, setPhotoURL] = useState<string>("");
   const [openAdd, setOpenadd] = useState<boolean>(false);
   const [openEdit, setOpenedit] = useState<boolean>(false);
+  const [type, setType] = useState<string>("");
   const [formAdd] = Form.useForm<any>();
   const [formUpdate] = Form.useForm();
+
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 50 },
-    { field: "ten", headerName: "Tên", width: 130 },
+    { field: "type", headerName: "Loại", width: 130 },
     { field: "createdAt", headerName: "Ngày Upload", width: 120 },
     { field: "status", headerName: "Trạng thái", width: 120 },
     {
@@ -117,7 +127,8 @@ export default function SliderShow(props: SliderShowProps) {
 
   const rows = slidershow.map((data: any) => ({
     id: data.uid,
-    ten: data.ten,
+    type: data.type,
+
     createdAt: moment.unix(data.createdAt).format("HH:MM DD/MM"),
     photoURL: data.photoURL,
     thaotac: data,
@@ -185,12 +196,14 @@ export default function SliderShow(props: SliderShowProps) {
       </div>
     </div>
   );
-  const handleAdd = () => {
-    if (photoURL === "") {
-      thongbaoError("Chưa Upload hình ảnh lên !!");
-    } else {
+  const handleAdd = (values: any) => {
+    for (let key in values) {
+      if (values[key] === undefined || values[key] === "") {
+        delete values[key];
+      }
+
       addDocument("slidershow", {
-        ...formAdd.getFieldValue("add"),
+        type: type,
         photoURL: photoURL,
       });
       setOpenadd(false);
@@ -205,9 +218,19 @@ export default function SliderShow(props: SliderShowProps) {
       <p className="text-lg font-bold text-blue-500 m-2 text-center">
         THÊM NỘI DUNG MỚI
       </p>
-      <Form form={formAdd} layout="vertical">
-        <Form.Item label="Tên Slidershow :" name="ten">
+      <Form onFinish={handleAdd} layout="vertical">
+        {/* <Form.Item label="Tên Slidershow :" name="ten">
           <Input className="rounded-lg" placeholder="Tên Slidershow..." />
+        </Form.Item> */}
+
+        <Form.Item name="loai" label="Quyền Hạn">
+          <Radio.Group onChange={(e) => setType(e.target.value)} value={type}>
+            <Radio value={"seafood"}>Thủy hải sản biển Cà Mau</Radio>
+            <Radio value={"agricultural"}>Nông sản xuất khẩu</Radio>
+            <Radio value={"rice"}>Gạo sạch Cà Mau</Radio>
+            <Radio value={"driedsquid"}>Khô mực Cà Mau</Radio>
+            <Radio value={"freshsquid"}>Mực tươi Cà Mau</Radio>
+          </Radio.Group>
         </Form.Item>
         <Form.Item label="Hình ảnh :">
           <Button
@@ -233,9 +256,7 @@ export default function SliderShow(props: SliderShowProps) {
             <img className="w-screen p-3" alt="Ảnh upload" src={photoURL} />
           )}
         </Form.Item>
-        <Button variant="contained" fullWidth onClick={handleAdd}>
-          THÊM NỘI DUNG MỚI
-        </Button>
+        <AntButton htmlType="submit">THÊM NỘI DUNG MỚI</AntButton>
       </Form>
     </div>
   );
