@@ -3,7 +3,9 @@ import { useData } from "@Context/AppProvider";
 import { useFE } from "@Context/FrontEndProvider";
 import { DeleteOutlined } from "@ant-design/icons";
 import { Badge, Button, message, Popover } from "antd";
+import Link from "next/link";
 import React, { Fragment, useContext, useState } from "react";
+import { BiPhoneCall } from "react-icons/bi";
 import { BsFillArrowUpCircleFill } from "react-icons/bs";
 import { RiShoppingBag3Fill } from "react-icons/ri";
 
@@ -109,9 +111,9 @@ export default function PopUp() {
           </Badge>
         </Popover>
       </div>
-      <div className="fixed z-50 bottom-0 right-5 w-[50px] cursor-pointer">
+      <div className="fixed z-50 bottom-5 right-5 w-[50px] cursor-pointer">
         <div className="flex flex-col items-center justify-center">
-          <div className="mb-5">
+          {/* <div className="mb-5">
             <img
               onClick={() => window.open(`${thongtin[0].messenger}`)}
               alt=""
@@ -124,14 +126,24 @@ export default function PopUp() {
               alt=""
               src="https://stc-zaloprofile.zdn.vn/pc/v1/images/zalo_sharelogo.png"
             />
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
             <BsFillArrowUpCircleFill
               className="text-white"
               size={"40px"}
               onClick={() => window.scroll(0, 0)}
             />
-          </div>
+          </div> */}
+          <Link href={`tel:${thongtin[0]?.sdtchinh}`}>
+            <div className="flex items-center">
+              <div className="text-black font-semibold flex  justify-start items-center rounded-full w-[250px]  h-[55px] bg-white shadow-2xl absolute right-0">
+                <span className="ml-5">Liên hệ với chúng tôi</span>
+              </div>
+              <div className="h-14 w-14   call-animation">
+                <BiPhoneCall className="text-white text-[40px]" />
+              </div>
+            </div>
+          </Link>
         </div>
       </div>
     </Fragment>

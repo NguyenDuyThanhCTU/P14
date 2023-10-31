@@ -108,76 +108,66 @@ export default function SliderShow() {
         />
       </div>
       <div className="  col-span-3 flex flex-col gap-4 ">
-        <SlideItem
-          Background={
-            "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2F2.png?alt=media&token=dc65eddb-6ede-4c91-b798-e2a38aaf9947"
-          }
-          Data={slidershow?.filter(
-            (items: any) => items.type === "agricultural"
-          )}
-        />
-        <SlideItem
-          Background={
-            "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2F3.png?alt=media&token=311a4484-dda9-4006-804a-9d1b3371685c"
-          }
-          Data={slidershow?.filter((items: any) => items.type === "rice")}
-        />
-
-        <SlideItem
-          Background={
-            "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2F4.png?alt=media&token=5bae338e-c83a-4fa2-8fab-c8a7b7b3e6fa"
-          }
-          Data={slidershow?.filter((items: any) => items.type === "driedsquid")}
-        />
-
-        <SlideItem
-          Background={
-            "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2F5.png?alt=media&token=e58e0952-14b4-4847-a310-9669264a7376"
-          }
-          Data={slidershow?.filter((items: any) => items.type === "freshsquid")}
-        />
-        <SlideItem
-          Background={
-            "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2FPicture1.png?alt=media&token=24d55bf5-4c30-49ec-bba7-ed4a59664146"
-          }
-          Data={slidershow?.filter((items: any) => items.type === "seafood")}
-        />
-        {/* <Swiper
+        <Swiper
           centeredSlides={true}
           loop={true}
           slidesPerView={1}
           slidesPerGroup={1}
           autoplay={{
-            delay: 2500,
+            delay: 7000,
             disableOnInteraction: false,
           }}
-          modules={[Autoplay]}
+          pagination={{
+            clickable: true,
+            dynamicBullets: true,
+          }}
+          modules={[Pagination, Autoplay]}
           className="mySwiper"
         >
-          {slidershow.map((data: any, idx: number) => (
-            <SwiperSlide>
-              {" "}
-              <Link
-                href={"/sanpham"}
-                className="h-full flex items-center  justify-center w-full"
-              >
-                <div className="w-full h-full py-2 rounded-3xl ">
-                  <img
-                    className="w-full h-full object-contain rounded-3xl"
-                    hidden={!data.status}
-                    key={data.uid}
-                    alt=""
-                    src={data.photoURL}
-                  />
-                </div>
-              </Link>
-            </SwiperSlide>
-          ))}
-        </Swiper> */}
+          <SwiperSlide>
+            <SlideItem
+              Background={
+                "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2FPicture4.png?alt=media&token=a4a14673-bea7-4606-8999-fbcbda2dff3e"
+              }
+              Data={slidershow?.filter((items: any) => items.type === "rice")}
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <SlideItem
+              Background={
+                "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2FUntitled%20design.png?alt=media&token=b9d6cab3-07fc-4ec4-a638-4f05071d21c7"
+              }
+              Data={slidershow?.filter(
+                (items: any) => items.type === "driedsquid"
+              )}
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <SlideItem
+              Background={
+                "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2FPicture3.png?alt=media&token=0ca29981-d86c-4cc4-a197-8636b1871454"
+              }
+              Data={slidershow?.filter(
+                (items: any) => items.type === "freshsquid"
+              )}
+            />
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <SlideItem
+              Background={
+                "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2FPicture1.png?alt=media&token=00f68fe4-d2a5-4972-bdf2-d12568f27b4d"
+              }
+              Data={slidershow?.filter(
+                (items: any) => items.type === "seafood"
+              )}
+            />
+          </SwiperSlide>
+        </Swiper>
       </div>
       <div className="col-span-2">
         <img
-          src="https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2F13.png?alt=media&token=198b472c-f1b5-4e87-bc45-f532952302ea"
+          src="https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2Fa.png?alt=media&token=0c11d570-98c1-4692-8373-2167993ac1a8"
           alt="banner"
           className="w-full"
         />

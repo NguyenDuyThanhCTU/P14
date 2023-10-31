@@ -5,26 +5,26 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Link from "next/link";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { useData } from "@Context/AppProvider";
 
 const SlideItem = ({ Background, Data }: any) => {
+  const { thongtin } = useData();
   return (
     <div className="relative w-full">
       <div className="w-full">
         <img src={Background} alt="banner1" />
       </div>
       <div
-        className={`${
-          Data[0]?.type === "rice"
-            ? " top-6 right-0  h-[75%] w-[50%]"
-            : Data[0]?.type === "driedsquid"
-            ? "h-[50%] top-20 left-28 w-[50%]"
-            : "top-6 right-3  h-[75%] w-[50%]"
-        } absolute  flex justify-center`}
+        className={`
+           top-6 right-3  h-[75%] w-[50%]
+        absolute  flex justify-center`}
       >
         <Swiper
           centeredSlides={true}
+          spaceBetween={30}
           loop={true}
-          slidesPerView={4}
+          slidesPerView={2}
           slidesPerGroup={1}
           autoplay={{
             delay: 2500,
@@ -33,25 +33,34 @@ const SlideItem = ({ Background, Data }: any) => {
           modules={[Autoplay]}
           className="mySwiper"
         >
-          {Data.map((data: any, idx: number) => (
-            <SwiperSlide>
-              {" "}
-              <Link
-                href={"/sanpham"}
-                className="h-full flex items-center  justify-center w-full"
-              >
-                <div className="w-full h-full py-2 rounded-3xl bg-gray-200">
-                  <img
-                    className="w-full h-full object-cover rounded-3xl "
-                    hidden={!data.status}
-                    key={data.uid}
-                    alt=""
-                    src={data.photoURL}
-                  />
+          <div className="flex flex-col gap-3">
+            {Data.map((data: any, idx: number) => (
+              <SwiperSlide key={idx}>
+                <div className="flex flex-col gap-2 items-center">
+                  <div className="w-full  py-2  bg-gray-200 h-[160px] overflow-hidden">
+                    <img
+                      className="w-full h-full object-contain hover:scale-125 duration-300 "
+                      hidden={!data.status}
+                      key={data.uid}
+                      alt=""
+                      src={data.photoURL}
+                    />
+                  </div>
+                  <div
+                    className="flex"
+                    onClick={() => {
+                      window.open(`tel:${thongtin[0].sdt}`, "_self");
+                    }}
+                  >
+                    <div className="px-6 flex items-center gap-2  py-1 rounded-full bg-red-500 text-white">
+                      <BsFillTelephoneFill />
+                      <span> Liên hệ</span>
+                    </div>
+                  </div>
                 </div>
-              </Link>
-            </SwiperSlide>
-          ))}
+              </SwiperSlide>
+            ))}
+          </div>
         </Swiper>
       </div>
     </div>
