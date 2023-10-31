@@ -13,7 +13,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        UTMFleur: ["UTMFleur", "sans-serif"],
+        UTM_Fleur: ["UTMFleur", "sans-serif"],
         //system font
         OpenSans: ["Open Sans", "sans-serif"],
         LexendDeca: ["Lexend Deca", "sans-serif"],

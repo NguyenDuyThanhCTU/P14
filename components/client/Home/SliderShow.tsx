@@ -102,12 +102,12 @@ export default function SliderShow() {
       </div> */}
       <div className="col-span-2">
         <img
-          src="https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2F18.png?alt=media&token=32360607-ee35-48ef-81dd-1462f0d9926d"
+          src="https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2Fa.png?alt=media&token=4fc0fe93-cebe-477f-ac25-2fede18fc7c3"
           alt="banner"
           className="w-full"
         />
       </div>
-      <div className="  col-span-3 flex flex-col gap-4 ">
+      <div className="  col-span-5 flex flex-col gap-4 ">
         <Swiper
           centeredSlides={true}
           loop={true}
@@ -125,10 +125,20 @@ export default function SliderShow() {
           className="mySwiper"
         >
           <SwiperSlide>
+            <div className="flex w-full justify-center">
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2Fa.png?alt=media&token=0c11d570-98c1-4692-8373-2167993ac1a8"
+                alt="banner"
+                className="w-[60%] object-contain"
+              />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
             <SlideItem
               Background={
                 "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2FPicture4.png?alt=media&token=a4a14673-bea7-4606-8999-fbcbda2dff3e"
               }
+              title="Gạo sạch Cà Mau"
               Data={slidershow?.filter((items: any) => items.type === "rice")}
             />
           </SwiperSlide>
@@ -137,6 +147,7 @@ export default function SliderShow() {
               Background={
                 "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2FUntitled%20design.png?alt=media&token=b9d6cab3-07fc-4ec4-a638-4f05071d21c7"
               }
+              title="Khô Mực Cà Mau"
               Data={slidershow?.filter(
                 (items: any) => items.type === "driedsquid"
               )}
@@ -150,6 +161,7 @@ export default function SliderShow() {
               Data={slidershow?.filter(
                 (items: any) => items.type === "freshsquid"
               )}
+              title="Mực tươi Cà Mau"
             />
           </SwiperSlide>
 
@@ -161,16 +173,10 @@ export default function SliderShow() {
               Data={slidershow?.filter(
                 (items: any) => items.type === "seafood"
               )}
+              title="Thủy Hải Sản Biển Cà Mau"
             />
           </SwiperSlide>
         </Swiper>
-      </div>
-      <div className="col-span-2">
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2Fa.png?alt=media&token=0c11d570-98c1-4692-8373-2167993ac1a8"
-          alt="banner"
-          className="w-full"
-        />
       </div>
     </div>
   );
