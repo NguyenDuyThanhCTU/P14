@@ -2,7 +2,7 @@
 import { useData } from "@Context/AppProvider";
 import { useFE } from "@Context/FrontEndProvider";
 import { Button } from "@mui/material";
-import { Badge } from "antd";
+import { Badge, Image } from "antd";
 import { useParams } from "next/navigation";
 import React, { Fragment, useContext } from "react";
 import { RiShoppingCartFill } from "react-icons/ri";
@@ -30,45 +30,69 @@ export default function ChiTietSanPham() {
   const { setThemSanpham } = useFE();
   const chiTiet = (
     <div className="m-5 md:flex md:justify-around md:items-start">
-      <div className="p-2 md:w-[60vw] shadow-lg border rounded-lg m-2">
+      <div className="p-2 md:w-[60vw]  rounded-lg m-2">
         {sanphamSelected.map((data: any) => (
-          <div key={data.uid}>
-            <p className="text-center text-2xl font-extrabold italic text-black">
-              {data.ten}
-            </p>
-            <div className="flex flex-col justify-center items-center">
-              <p className="text-red-500 text-xl font-bold">
-                {Number(data.gia).toLocaleString("it-IT", {
-                  style: "currency",
-                  currency: "VND",
-                })}
-              </p>
-              {data.giamgia !== undefined && (
-                <p className="line-through">
-                  Giá gốc :
-                  {Number(
-                    (data.gia * 15) / 100 + Number(data.gia)
-                  ).toLocaleString("it-IT", {
+          <div key={data.uid} className="flex flex-col gap-10">
+            <div className="flex justify-start gap-5 items-start">
+              <div className="w-[50%] rounded-lg d:h-max p:h-auto overflow-hidden">
+                <img
+                  className="p-2 h-full w-full object-contain hover:scale-110 duration-500"
+                  src={data?.photoURL}
+                />
+              </div>
+              <div className="flex flex-col gap-5">
+                <div>
+                  <h3 className="text-[26px] uppercase font-bold">
+                    {data?.ten}
+                  </h3>
+                  <div className="bg-black w-24 h-1"></div>
+                </div>
+                <p className="text-red-500 text-xl font-bold">
+                  {Number(data.gia).toLocaleString("it-IT", {
                     style: "currency",
                     currency: "VND",
                   })}
                 </p>
-              )}
-              <Button
-                variant="contained"
-                className=""
-                onClick={() => {
-                  setThemSanpham(true);
-                  setUid(data.uid);
-                }}
-              >
-                THÊM VÀO GIỎ
-              </Button>
-              <img
-                className="w-full m-5 rounded-md"
-                alt=""
-                src={data.photoURL}
-              />
+                {data.giamgia !== undefined && (
+                  <p className="line-through">
+                    Giá gốc :
+                    {Number(
+                      (data.gia * 15) / 100 + Number(data.gia)
+                    ).toLocaleString("it-IT", {
+                      style: "currency",
+                      currency: "VND",
+                    })}
+                  </p>
+                )}
+                <div className=" text-green-500 rounded-xl font-bold">
+                  Tình trạng: Còn hàng
+                </div>
+                <div>
+                  Loại sản phẩm:{" "}
+                  <span className="font-bold"> {data.phanloai}</span>
+                </div>
+                <div className="flex gap-3 items-center font-light">
+                  <span className="">
+                    Lượt xem {Math.floor(Math.random() * 1000) + 1}
+                  </span>
+                </div>
+                <Button
+                  variant="contained"
+                  className=""
+                  onClick={() => {
+                    setThemSanpham(true);
+                    setUid(data.uid);
+                  }}
+                >
+                  THÊM VÀO GIỎ
+                </Button>
+              </div>
+            </div>
+            <div className="p-5 border-t">
+              <h2 className="text-[30px] font-bold">Mô tả sản phẩm</h2>
+              <div className="mt-2">
+                <div dangerouslySetInnerHTML={{ __html: data?.editor }}></div>
+              </div>
             </div>
           </div>
         ))}
