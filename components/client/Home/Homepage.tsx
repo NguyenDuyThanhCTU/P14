@@ -26,18 +26,18 @@ export default function Homepage() {
           <SliderShow />
         </div>
 
-        {/* {dataloai.map((items: any, idx: number) => (
+        {dataloai.map((items: any, idx: number) => (
           <div key={idx} className="">
             <Product topic={items.loai1} />
           </div>
-        ))} */}
+        ))}
 
         {/* <SanPhamKhuyenMai />
         <SanPhamNoiBat />
         <SanPhamMoi /> */}
 
-        {/* <ThemSanPham />
-        <ThanhToan /> */}
+        <ThemSanPham />
+        <ThanhToan />
       </div>
     </div>
   );

@@ -12,12 +12,12 @@ const SlideItem = ({ Background, Data, title }: any) => {
   const { thongtin } = useData();
   return (
     <div className="flex">
-      <div className="flex-1 w-[30vw]">
+      <div className="w-full">
         <Swiper
           centeredSlides={true}
           spaceBetween={30}
           loop={true}
-          slidesPerView={1}
+          slidesPerView={5}
           slidesPerGroup={1}
           autoplay={{
             delay: 2500,
@@ -29,7 +29,7 @@ const SlideItem = ({ Background, Data, title }: any) => {
           {Data.map((data: any, idx: number) => (
             <SwiperSlide key={idx}>
               <div className="flex flex-col gap-2 items-center">
-                <div className=" py-2 w-[80%]    h-[260px] overflow-hidden">
+                <div className=" py-2    h-[260px] overflow-hidden">
                   <img
                     className="w-full h-full object-contain hover:scale-125 duration-300 rounded-xl"
                     hidden={!data.status}
@@ -58,7 +58,7 @@ const SlideItem = ({ Background, Data, title }: any) => {
           ))}
         </Swiper>
       </div>
-      <div className="flex-1">
+      {/* <div className="flex-1">
         <div className="flex flex-col gap-2">
           <h2 className=" font-bold text-[30px] uppercase font-UTM">{title}</h2>
           <div className="h-1 w-20 bg-black"></div>
@@ -109,7 +109,7 @@ const SlideItem = ({ Background, Data, title }: any) => {
             )}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

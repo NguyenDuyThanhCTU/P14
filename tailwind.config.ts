@@ -7,6 +7,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        p: "240px",
+        d: "1024px",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
