@@ -16,8 +16,8 @@ const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="relative">
       <Header />
-      <div className="">{children}</div>
-      <Partner />
+      <div className="  ">{children}</div>
+      {/* <Partner />
       <div className="fixed right-0 top-40 z-50">
         <Hotline />
       </div>
@@ -27,7 +27,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
         <DanhGia />
         <CauHoi />
       </div>
-      <Footer />
+      <Footer /> */}
     </div>
   );
 };

@@ -63,8 +63,12 @@ const Partner = () => {
             {projectItems.map((item, index) => (
               <SwiperSlide>
                 <div key={index}>
-                  <div className="w-full flex justify-center">
-                    <img src={item.image} alt="project" />
+                  <div className="w-[225px] h-[225px] flex justify-center">
+                    <img
+                      src={item.image}
+                      alt="project"
+                      className="object-cover"
+                    />
                   </div>
                 </div>
               </SwiperSlide>

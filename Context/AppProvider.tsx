@@ -263,8 +263,8 @@ export const AppProvider: React.FC<Props> = ({ children }) => {
   const [ketqua, setKetqua] = useState<any[]>([]);
   function filterResults(list: any[], keyword: string) {
     return list.filter((x) => {
-      const arr = x.ten.toLowerCase().split(" ");
-      return arr.some((y: any) => keyword.toLowerCase().includes(y));
+      const arr = x.ten?.toLowerCase().split(" ");
+      return arr?.some((y: any) => keyword.toLowerCase().includes(y));
     });
   }
   useEffect(() => {

@@ -256,13 +256,24 @@ export default function Header() {
           <SiGmail className="mr-1" /> {thongtin[0]?.gmail}
         </p>
       </div> */}
-      <div className="px-20 text-[#795929]  flex justify-between items-center">
+      <div className="px-20 text-[#795929] pb-5 flex justify-between items-start">
         <div className="w-[80px] bg-white   rounded-full">
           <img
             className=" rounded-full w-full"
             alt=""
             src={thongtin[0]?.logo}
           />
+        </div>
+        <div className="text-center">
+          <h2 className="uppercase font-bold text-[30px] text-black">
+            Thực phẩm sạch thiên ngọc
+          </h2>
+          <div className="uppercase font-bold text-[#610706]">
+            Uy tính - An toàn - Chất lượng
+          </div>
+          <div className="uppercase font-bold text-[#610706] text-[18px]">
+            Nơi gửi trọn niềm tin
+          </div>
         </div>
         <div className="bg-white w-1/4 flex rounded-md">
           <Input
@@ -319,7 +330,7 @@ export default function Header() {
             </Popover>
           </div>
         </div> */}
-        <div className="flex gap-5">
+        {/* <div className="flex gap-5">
           <div>
             <Popover placement="bottomLeft" trigger="click" content={tongHang}>
               <Badge
@@ -349,7 +360,7 @@ export default function Header() {
               )}
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="flex justify-center ">
         <div
