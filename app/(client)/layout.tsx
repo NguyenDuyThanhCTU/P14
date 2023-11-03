@@ -14,9 +14,9 @@ export const metadata = {
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="relative">
-      <Header />
+      {/* <Header /> */}
       <div className="">{children}</div>
-      <div className="fixed right-0 top-40 z-50">
+      {/* <div className="fixed right-0 top-40 z-50">
         <Hotline />
       </div>
       <div className="bg-cover py-5 bg-[url(https://www.msc.org/images/default-source/msc-english/content-banner/content-hero-images-1920px-x-1080px/rs14483_istock-104669275-ocean-wave-breaking.jpg?sfvrsn=9c452f0_11)] bg-no-repeat">
@@ -24,7 +24,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
         <DanhGia />
         <CauHoi />
       </div>
-      <Footer />
+      <Footer /> */}
     </div>
   );
 };

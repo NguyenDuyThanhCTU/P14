@@ -102,7 +102,7 @@ export default function SliderShow() {
       </div> */}
       <div className="col-span-2">
         <img
-          src="https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2Fa.png?alt=media&token=4fc0fe93-cebe-477f-ac25-2fede18fc7c3"
+          src="https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2Fa.png?alt=media&token=5ab50eb7-3948-4e9c-9db9-4a9f80727f0a"
           alt="banner"
           className="w-full"
         />
