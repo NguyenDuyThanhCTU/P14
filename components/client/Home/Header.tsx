@@ -256,22 +256,22 @@ export default function Header() {
           <SiGmail className="mr-1" /> {thongtin[0]?.gmail}
         </p>
       </div> */}
-      <div className="px-20 text-[#795929] pb-5 flex justify-between items-start">
-        <div className="w-[80px] bg-white   rounded-full">
+      <div className="px-20 text-[#795929] pb-5 flex justify-between items-center">
+        <div className="w-[120px] bg-white   rounded-full">
           <img
             className=" rounded-full w-full"
             alt=""
             src={thongtin[0]?.logo}
           />
         </div>
-        <div className="text-center">
+        <div className="text-center font-LexendDeca">
           <h2 className="uppercase font-bold text-[30px] text-black">
             Thực phẩm sạch thiên ngọc
           </h2>
-          <div className="uppercase font-bold text-[#610706]">
-            Uy tính - An toàn - Chất lượng
+          <div className="uppercase font-bold text-[20px] text-[#610706] ">
+            Uy tín - An toàn - Chất lượng
           </div>
-          <div className="uppercase font-bold text-[#610706] text-[18px]">
+          <div className="uppercase font-bold text-[20px] text-[#610706] ">
             Nơi gửi trọn niềm tin
           </div>
         </div>

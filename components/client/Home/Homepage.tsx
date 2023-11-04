@@ -25,7 +25,7 @@ import { EffectCreative } from "swiper/modules";
 
 export default function Homepage() {
   const { loaisanpham, slidershow } = useData();
-
+  console.log(slidershow);
   const dataloai = loaisanpham.map((data: any) => data).reverse();
   const projectItems = [
     {
@@ -67,7 +67,7 @@ export default function Homepage() {
         {/* <div className="py-5">
           <SliderShow />
         </div> */}
-        <div className="flex flex-col w-full justify-center items-center py-5">
+        {/* <div className="flex flex-col w-full justify-center items-center py-5">
           <h2 className=" text-[#610706] uppercase text-[40px] font-semibold">
             Thực phẩm sạch
           </h2>
@@ -80,105 +80,45 @@ export default function Homepage() {
           <div className=" text-[#610706] uppercase text-[30px] font-semibold">
             Nơi gửi trọn niềm tin
           </div>
-        </div>
-        <div className="relative h-max w-full ">
-          <div className="w-[1300px] mx-auto absolute left-1  right-1">
-            <Swiper
-              grabCursor={true}
-              effect={"creative"}
-              loop={true}
-              creativeEffect={{
-                prev: {
-                  shadow: true,
-                  translate: [0, 0, -400],
-                },
-                next: {
-                  translate: ["100%", 0, 0],
-                },
-              }}
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
-              modules={[EffectCreative, Autoplay]}
-              className="mySwiper"
-            >
-              {slidershow.map((item: any, idx: number) => (
-                <SwiperSlide>
-                  <div key={idx} className="w-full h-[65vh]">
-                    <img
-                      className="w-full h-full object-cover hover:scale-125 duration-300 rounded-xl"
-                      alt=""
-                      src={item.photoURL}
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-          <div className="bg-[url(http://www.baseafood.vn/images/bg_slider.png)] bg-no-repeat h-[70vh] w-full bg-cover py-10    bg-right-bottom relative bottom-full z-10">
-            <div className="w-52 h-52 rounded-full border-blue-500 border-[10px] overflow-hidden">
+        </div> */}
+        <div className="pb-[30vh]">
+          <div className="relative h-max w-full ">
+            <div className="p:w-auto  d:w-[1300px] mx-auto absolute left-1  right-1">
               <Swiper
-                centeredSlides={true}
-                slidesPerView={1}
-                slidesPerGroup={1}
+                grabCursor={true}
+                effect={"creative"}
+                loop={true}
+                creativeEffect={{
+                  prev: {
+                    shadow: true,
+                    translate: [0, 0, -400],
+                  },
+                  next: {
+                    translate: ["100%", 0, 0],
+                  },
+                }}
                 autoplay={{
                   delay: 2500,
                   disableOnInteraction: false,
                 }}
-                loop={true}
-                modules={[Autoplay]}
+                modules={[EffectCreative, Autoplay]}
                 className="mySwiper"
               >
-                {slidershow
-                  ?.filter((items: any) => items.type === "rice")
-                  ?.map((item: any, index: number) => (
-                    <SwiperSlide>
-                      <div key={index}>
-                        <div className="w-52 h-52 rounded-full flex justify-center ">
-                          <img
-                            src={item.photoURL}
-                            alt="project"
-                            className="object-cover  origin-center rounded-full w-full h-full "
-                          />
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  ))}
+                {slidershow.map((item: any, idx: number) => (
+                  <SwiperSlide>
+                    <div key={idx} className="w-full h-[65vh]">
+                      <img
+                        className="w-full h-full object-cover hover:scale-125 duration-300 rounded-xl"
+                        alt=""
+                        src={item.photoURL}
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
-            <div className="w-52 h-52 overflow-hidden rounded-full border-blue-500 border-[10px] relative  left-56">
-              <Swiper
-                centeredSlides={true}
-                slidesPerView={1}
-                slidesPerGroup={1}
-                autoplay={{
-                  delay: 2500,
-                  disableOnInteraction: false,
-                }}
-                loop={true}
-                modules={[Autoplay]}
-                className="mySwiper"
-              >
-                {slidershow
-                  ?.filter((items: any) => items.type === "driedsquid")
-                  ?.map((item: any, index: number) => (
-                    <SwiperSlide>
-                      <div key={index}>
-                        <div className="w-full h-full rounded-full flex justify-center ">
-                          <img
-                            src={item.photoURL}
-                            alt="project"
-                            className="object-cover  "
-                          />
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  ))}
-              </Swiper>
-            </div>
-            <div className="absolute left-[500px] top-96   flex  gap-[224px]">
-              <div className="w-52 h-52  overflow-hidden rounded-full border-blue-500 border-[10px]">
+            <div className="bg-[url(http://www.baseafood.vn/images/bg_slider.png)] bg-no-repeat h-[70vh] w-full bg-cover py-10    bg-right-bottom relative bottom-full z-50">
+              <div className="w-52 h-52 rounded-full border-blue-500 border-[10px] overflow-hidden">
                 <Swiper
                   centeredSlides={true}
                   slidesPerView={1}
@@ -192,11 +132,41 @@ export default function Homepage() {
                   className="mySwiper"
                 >
                   {slidershow
-                    ?.filter((items: any) => items.type === "freshsquid")
+                    ?.filter((items: any) => items.type === "rice")
                     ?.map((item: any, index: number) => (
                       <SwiperSlide>
                         <div key={index}>
-                          <div className="w-full h-full rounded-full flex justify-center  items-center">
+                          <div className="w-52 h-52 rounded-full flex justify-center ">
+                            <img
+                              src={item.photoURL}
+                              alt="project"
+                              className="object-cover  origin-center rounded-full w-full h-full "
+                            />
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                    ))}
+                </Swiper>
+              </div>
+              <div className="w-52 h-52 overflow-hidden rounded-full border-blue-500 border-[10px] relative  left-56">
+                <Swiper
+                  centeredSlides={true}
+                  slidesPerView={1}
+                  slidesPerGroup={1}
+                  autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                  }}
+                  loop={true}
+                  modules={[Autoplay]}
+                  className="mySwiper"
+                >
+                  {slidershow
+                    ?.filter((items: any) => items.type === "driedsquid")
+                    ?.map((item: any, index: number) => (
+                      <SwiperSlide>
+                        <div key={index}>
+                          <div className="w-52 h-52 rounded-full flex justify-center ">
                             <img
                               src={item.photoURL}
                               alt="project"
@@ -208,35 +178,67 @@ export default function Homepage() {
                     ))}
                 </Swiper>
               </div>
-              <div className="w-52 h-52 overflow-hidden rounded-full border-blue-500 border-[10px]">
-                <Swiper
-                  centeredSlides={true}
-                  slidesPerView={1}
-                  slidesPerGroup={1}
-                  autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                  }}
-                  loop={true}
-                  modules={[Autoplay]}
-                  className="mySwiper"
-                >
-                  {slidershow
-                    ?.filter((items: any) => items.type === "seafood")
-                    ?.map((item: any, index: number) => (
-                      <SwiperSlide>
-                        <div key={index}>
-                          <div className="w-full h-full rounded-full flex justify-center ">
-                            <img
-                              src={item.photoURL}
-                              alt="project"
-                              className="object-cover  "
-                            />
+              <div className="absolute left-[600px] top-96   flex  gap-[224px]">
+                <div className="w-52 h-52  overflow-hidden rounded-full border-blue-500 border-[10px]">
+                  <Swiper
+                    centeredSlides={true}
+                    slidesPerView={1}
+                    slidesPerGroup={1}
+                    autoplay={{
+                      delay: 2500,
+                      disableOnInteraction: false,
+                    }}
+                    loop={true}
+                    modules={[Autoplay]}
+                    className="mySwiper"
+                  >
+                    {slidershow
+                      ?.filter((items: any) => items.type === "freshsquid")
+                      ?.map((item: any, index: number) => (
+                        <SwiperSlide>
+                          <div key={index}>
+                            <div className="w-52 h-52  rounded-full flex justify-center  items-center">
+                              <img
+                                src={item.photoURL}
+                                alt="project"
+                                className="object-cover  "
+                              />
+                            </div>
                           </div>
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                </Swiper>
+                        </SwiperSlide>
+                      ))}
+                  </Swiper>
+                </div>
+                <div className="w-52 h-52 overflow-hidden rounded-full border-blue-500 border-[10px]">
+                  <Swiper
+                    centeredSlides={true}
+                    slidesPerView={1}
+                    slidesPerGroup={1}
+                    autoplay={{
+                      delay: 2500,
+                      disableOnInteraction: false,
+                    }}
+                    loop={true}
+                    modules={[Autoplay]}
+                    className="mySwiper"
+                  >
+                    {slidershow
+                      ?.filter((items: any) => items.type === "seafood")
+                      ?.map((item: any, index: number) => (
+                        <SwiperSlide>
+                          <div key={index}>
+                            <div className="w-52 h-52  rounded-full flex justify-center ">
+                              <img
+                                src={item.photoURL}
+                                alt="project"
+                                className="object-cover  "
+                              />
+                            </div>
+                          </div>
+                        </SwiperSlide>
+                      ))}
+                  </Swiper>
+                </div>
               </div>
             </div>
           </div>
@@ -324,8 +326,8 @@ export default function Homepage() {
         <SanPhamNoiBat />
         <SanPhamMoi /> */}
 
-        {/* <ThemSanPham />
-        <ThanhToan /> */}
+        <ThemSanPham />
+        <ThanhToan />
       </div>
     </div>
   );
