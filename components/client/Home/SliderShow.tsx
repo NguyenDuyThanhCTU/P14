@@ -79,7 +79,7 @@ export default function SliderShow() {
   //   </>
   // );
   const desktopSlider = (
-    <div className="grid grid-cols-7 gap-5 justify-start items-start cursor-pointer w-full">
+    <div className="grid grid-cols-7  bg-left-bottom bg-no-repeat  gap-5 justify-start items-center cursor-pointer w-full bg-[url(https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2Fz4853091603323_a9b2b25ca0bce4c69fd44baac9a317a5.jpg?alt=media&token=943d6097-9222-496d-861f-3e21f7cb328a)]">
       {/* <div className=" h-[500px] w-max overflow-y-auto bg-gray-100 shadow-lg">
         <ul className="w-max">
           {dataloai.map((data: any) => (
@@ -104,7 +104,7 @@ export default function SliderShow() {
       </div> */}
       <div className="col-span-2">
         <img
-          src="https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2Fa.png?alt=media&token=5ab50eb7-3948-4e9c-9db9-4a9f80727f0a"
+          src="https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2Fa.png?alt=media&token=3a6f6730-8498-4274-9784-2db82ff83c67"
           alt="banner"
           className="w-full"
         />

@@ -256,7 +256,7 @@ export default function Header() {
           <SiGmail className="mr-1" /> {thongtin[0]?.gmail}
         </p>
       </div> */}
-      <div className="px-20 text-[#795929] pb-5 flex justify-between items-center">
+      <div className="px-10 text-[#795929] pb-5 flex justify-between items-center">
         <div className="w-[120px] bg-white   rounded-full">
           <img
             className=" rounded-full w-full"
@@ -330,7 +330,7 @@ export default function Header() {
             </Popover>
           </div>
         </div> */}
-        <div className="flex gap-5">
+        <div className="flex gap-5 ml-2 flex-col">
           <div>
             <Popover placement="bottomLeft" trigger="click" content={tongHang}>
               <Badge
@@ -348,17 +348,19 @@ export default function Header() {
               </Badge>
             </Popover>
           </div>
-          <div className="p-2 border border-dotted border-black flex justify-center items-center mr-2">
-            <FiPhoneCall className="text-[28px] text-black" />
-          </div>
-          <div>
-            <p>Hotline</p>
-            <p className="font-bold text-xl text-decor">
-              {thongtin[0]?.sdtchinh.replace(
-                /(\d{3})(\d{3})(\d{4})/,
-                "$1 $2 $3"
-              )}
-            </p>
+          <div className="flex">
+            <div className="p-2 border border-dotted border-black flex justify-center items-center mr-2">
+              <FiPhoneCall className="text-[28px] text-black" />
+            </div>
+            <div>
+              <p>Hotline</p>
+              <p className="font-bold text-xl text-decor w-max">
+                {thongtin[0]?.sdtchinh.replace(
+                  /(\d{3})(\d{3})(\d{4})/,
+                  "$1 $2 $3"
+                )}
+              </p>
+            </div>
           </div>
         </div>
       </div>

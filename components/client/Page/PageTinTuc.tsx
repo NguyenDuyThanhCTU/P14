@@ -10,7 +10,6 @@ import Category from "@components/client/Items/Category";
 export default function PageTinTuc() {
   const { tintuc } = useData();
   const datatintuc = tintuc.map((data: any) => data).reverse();
-  console.log(datatintuc);
   return (
     <>
       <div className="border h-max border-gray-400 d:block p:hidden col-span-2 ">

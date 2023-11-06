@@ -45,7 +45,7 @@ export default function SanPham({ sanpham }: any) {
                   </div>
                 </ScrollAnimation>
                 <p className="font-bold text-center mt-2 h-[40px] overflow-hidden">
-                  {data.ten.toUpperCase()}
+                  {data?.ten?.toUpperCase()}
                 </p>
                 <div className="flex flex-col justify-center items-center h-[40px]">
                   <p className="text-red-500 font-bold">

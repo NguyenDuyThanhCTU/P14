@@ -17,7 +17,7 @@ const PageNewsDetail = () => {
   useEffect(() => {
     const sort = datatintuc.filter((item: any) => item.tieude === decodedParam);
     setData(sort);
-  }, [datatintuc, params, tintuc]);
+  }, [params]);
 
   const DetailPostDate = moment
     .unix(Data[0]?.createdAt.seconds)
@@ -57,7 +57,7 @@ const PageNewsDetail = () => {
         </div>
         {markup && (
           <div
-            className="font-LexendDeca font-extralight "
+            className="font-LexendDeca font-extralight py-5 flex flex-col gap-2"
             dangerouslySetInnerHTML={markup}
           ></div>
         )}

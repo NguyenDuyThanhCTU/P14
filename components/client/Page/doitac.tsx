@@ -2,6 +2,7 @@
 import React from "react";
 
 import { useData } from "@Context/AppProvider";
+import Partner from "../Home/Partner";
 
 export const Doitac: React.FC = () => {
   const { thongtin } = useData();
@@ -35,6 +36,7 @@ export const Doitac: React.FC = () => {
           <strong className="text-mainblue">Email:</strong> {thongtin[0]?.gmail}
         </p>
       </div>
+      <Partner />
     </div>
   );
 };

@@ -4,7 +4,6 @@ import React from "react";
 
 const Contact = () => {
   const { thongtin } = useData();
-  console.log(thongtin);
   return (
     <div>
       <div className="w-[1600px] mx-auto grid grid-cols-2 gap-5 font-LexendDeca font-extralight">

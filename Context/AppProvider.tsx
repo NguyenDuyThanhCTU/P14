@@ -230,7 +230,6 @@ export const AppProvider: React.FC<Props> = ({ children }) => {
   const sanphamtheoloai1 = loaisanpham.filter((obj: any) => {
     return obj.loai1 === loai;
   });
-  console.log(sanphamtheoloai1);
 
   const sanphamtheoloai2 = sanpham.filter((obj: any) => {
     return obj.loai2 === loai;

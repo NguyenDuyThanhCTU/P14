@@ -6,7 +6,6 @@ import Header from "@components/client/Home/Header";
 import Hotline from "@components/client/Items/Hotline";
 import React from "react";
 import "@styles/styles.css";
-import Partner from "@components/client/Home/Partner";
 export const metadata = {
   title: "THỦY SẢN THIÊN NGỌC",
   description: "Công Ty TNHH Nông Sản - Thủy Sản Thiên Ngọc",
@@ -17,7 +16,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
     <div className="relative">
       <Header />
       <div className="  ">{children}</div>
-      <Partner />
+
       <div className="fixed right-0 top-40 z-50">
         <Hotline />
       </div>

@@ -43,7 +43,6 @@ export default function BaiViet() {
     const data = {
       editor: editor,
     };
-    console.log(data);
     if (editor === "") {
       thongbaoError("Chưa Upload hình ảnh lên !!");
     } else {

@@ -4,10 +4,10 @@ import React, { Fragment } from "react";
 import { useData } from "@Context/AppProvider";
 import SanPham from "../SanPham/SanPham";
 import ThemSanPham from "../SanPham/ThemSanPham";
-import SliderShow from "../Home/SliderShow";
 import ThanhToan from "../Home/ThanhToan";
 import { Popover } from "antd";
 import { IoFishSharp } from "react-icons/io5";
+import SliderShow from "../Home/SliderShow";
 
 export default function PageSanPham() {
   const {
@@ -56,7 +56,7 @@ export default function PageSanPham() {
               onClick={() => {
                 setUid(data.uid);
                 setLoai(data);
-                router.push(`/san-pham/${data.loai1}/${data.uid}`);
+                router.push("/loaisanpham");
                 setTimeout(() => {
                   window.scroll(0, 0);
                 }, 1000);

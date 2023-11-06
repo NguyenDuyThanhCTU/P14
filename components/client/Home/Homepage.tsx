@@ -25,7 +25,6 @@ import { EffectCreative } from "swiper/modules";
 
 export default function Homepage() {
   const { loaisanpham, slidershow } = useData();
-  console.log(slidershow);
   const dataloai = loaisanpham.map((data: any) => data).reverse();
 
   return (
@@ -48,7 +47,7 @@ export default function Homepage() {
             Nơi gửi trọn niềm tin
           </div>
         </div> */}
-        <div className="pb-[30vh]">
+        <div className="h-max">
           <div className="relative h-max w-full ">
             <div className="p:w-auto  d:w-[1300px] mx-auto absolute left-1  right-1">
               <Swiper
@@ -85,7 +84,7 @@ export default function Homepage() {
               </Swiper>
             </div>
             <div className="bg-[url(http://www.baseafood.vn/images/bg_slider.png)] bg-no-repeat h-[70vh] w-full bg-cover py-10    bg-right-bottom relative bottom-full z-50">
-              <div className="w-52 h-52 rounded-full border-blue-500 border-[10px] overflow-hidden">
+              <div className="w-40 h-40 rounded-full border-blue-500 border-[10px] overflow-hidden">
                 <Swiper
                   centeredSlides={true}
                   slidesPerView={1}
@@ -103,7 +102,7 @@ export default function Homepage() {
                     ?.map((item: any, index: number) => (
                       <SwiperSlide>
                         <div key={index}>
-                          <div className="w-52 h-52 rounded-full flex justify-center ">
+                          <div className="w-40 h-40 rounded-full flex justify-center ">
                             <img
                               src={item.photoURL}
                               alt="project"
@@ -115,7 +114,7 @@ export default function Homepage() {
                     ))}
                 </Swiper>
               </div>
-              <div className="w-52 h-52 overflow-hidden rounded-full border-blue-500 border-[10px] relative  left-56">
+              <div className="w-40 h-40 overflow-hidden rounded-full border-blue-500 border-[10px] relative  left-56">
                 <Swiper
                   centeredSlides={true}
                   slidesPerView={1}
@@ -133,7 +132,7 @@ export default function Homepage() {
                     ?.map((item: any, index: number) => (
                       <SwiperSlide>
                         <div key={index}>
-                          <div className="w-52 h-52 rounded-full flex justify-center ">
+                          <div className="w-40 h-40 rounded-full flex justify-center ">
                             <img
                               src={item.photoURL}
                               alt="project"
@@ -146,7 +145,7 @@ export default function Homepage() {
                 </Swiper>
               </div>
               <div className="absolute left-[600px] top-96   flex  gap-[224px]">
-                <div className="w-52 h-52  overflow-hidden rounded-full border-blue-500 border-[10px]">
+                <div className="w-40 h-40  overflow-hidden rounded-full border-blue-500 border-[10px]">
                   <Swiper
                     centeredSlides={true}
                     slidesPerView={1}
@@ -164,7 +163,7 @@ export default function Homepage() {
                       ?.map((item: any, index: number) => (
                         <SwiperSlide>
                           <div key={index}>
-                            <div className="w-52 h-52  rounded-full flex justify-center  items-center">
+                            <div className="w-40 h-40  rounded-full flex justify-center  items-center">
                               <img
                                 src={item.photoURL}
                                 alt="project"
@@ -176,7 +175,7 @@ export default function Homepage() {
                       ))}
                   </Swiper>
                 </div>
-                <div className="w-52 h-52 overflow-hidden rounded-full border-blue-500 border-[10px]">
+                <div className="w-40 h-40 overflow-hidden rounded-full border-blue-500 border-[10px]">
                   <Swiper
                     centeredSlides={true}
                     slidesPerView={1}
@@ -194,7 +193,7 @@ export default function Homepage() {
                       ?.map((item: any, index: number) => (
                         <SwiperSlide>
                           <div key={index}>
-                            <div className="w-52 h-52  rounded-full flex justify-center ">
+                            <div className="w-40 h-40  rounded-full flex justify-center ">
                               <img
                                 src={item.photoURL}
                                 alt="project"
@@ -211,7 +210,7 @@ export default function Homepage() {
           </div>
         </div>
 
-        <div className="p:w-auto d:w-[1300px] bg-no-repeat bg-cover  bg-center mx-auto bg-[url(https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2Fz4852795432538_e0d93e1fe26a6691c6b3745d8c8f9ae0.jpg?alt=media&token=b85dd234-08a2-4f55-a792-f703ced8ffc2)]">
+        <div className="p:w-auto d:w-[1300px] bg-no-repeat bg-cover mt-10  bg-center mx-auto bg-[url(https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2Fz4840795432538_e0d93e1fe26a6691c6b3745d8c8f9ae0.jpg?alt=media&token=b85dd234-08a2-4f55-a792-f703ced8ffc2)]">
           <div className="w-full h-full bg-[rgba(0,0,0,0.45)]">
             <div className="p-10 flex flex-col items-center gap-5">
               <h2 className="uppercase text-[30px] text-white">Giới thiệu</h2>
