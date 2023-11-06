@@ -195,7 +195,7 @@ export default function Header() {
           setDrawerMenu(false);
         }}
       >
-        <AiOutlineUser className="mr-2" /> Khách hàng phản hồi
+        <AiOutlineUser className="mr-2" /> Đối tác
       </li>
       <li
         className="menu-li-be"

@@ -264,7 +264,7 @@ export default function Header() {
             src={thongtin[0]?.logo}
           />
         </div>
-        <div className="text-center font-LexendDeca">
+        <div className="text-center font-Noto_Serif ita">
           <h2 className="uppercase font-bold text-[30px] text-black">
             Thực phẩm sạch thiên ngọc
           </h2>
@@ -330,7 +330,7 @@ export default function Header() {
             </Popover>
           </div>
         </div> */}
-        {/* <div className="flex gap-5">
+        <div className="flex gap-5">
           <div>
             <Popover placement="bottomLeft" trigger="click" content={tongHang}>
               <Badge
@@ -360,7 +360,7 @@ export default function Header() {
               )}
             </p>
           </div>
-        </div> */}
+        </div>
       </div>
       <div className="flex justify-center ">
         <div

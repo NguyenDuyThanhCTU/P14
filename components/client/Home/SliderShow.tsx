@@ -10,6 +10,8 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Link from "next/link";
 import SlideItem from "../Items/SlideItem";
+import SanPham from "../SanPham/SanPham";
+import ProductSlide from "../SanPham/ProductSlide";
 
 export default function SliderShow() {
   const {
@@ -20,10 +22,10 @@ export default function SliderShow() {
     setLoai,
     setUid,
     router,
-    thongtin,
+    sanpham,
   } = useData();
   const dataloai = loaisanpham.map((data: any) => data).reverse();
-
+  const datasanpham = sanpham.map((data: any) => data).reverse();
   const mobileSlider = (
     <div className="m-2 w-screen  h-[500px]">
       {/* <Swiper
@@ -53,29 +55,29 @@ export default function SliderShow() {
       </Swiper> */}
     </div>
   );
-  const sanPhamLoai = (
-    <>
-      <ul className="max-w-[60vw] cursor-pointer">
-        {sanphamtheoloai1?.map((data: any) => (
-          <li
-            key={data}
-            className="flex justify-start items-center font-bold py-2 px-5 italic hover:bg-gray-200 hover:rounded-md
-                border-b border-dotted hover:text-red-500"
-            onClick={() => {
-              setUid(data.uid);
-              setLoai(data.loai1);
-              router.push(`/san-pham/${data.loai1}/${data.uid}`);
-              setTimeout(() => {
-                window.scroll(0, 0);
-              }, 1000);
-            }}
-          >
-            <IoFishSharp className="mr-5" /> {data.ten.toUpperCase()}
-          </li>
-        ))}
-      </ul>
-    </>
-  );
+  // const sanPhamLoai = (
+  //   <>
+  //     <ul className="max-w-[60vw] cursor-pointer">
+  //       {sanphamtheoloai1?.map((data: any) => (
+  //         <li
+  //           key={data}
+  //           className="flex justify-start items-center font-bold py-2 px-5 italic hover:bg-gray-200 hover:rounded-md
+  //               border-b border-dotted hover:text-red-500"
+  //           onClick={() => {
+  //             setUid(data.uid);
+  //             setLoai(data.loai1);
+  //             router.push(`/san-pham/${data.loai1}/${data.uid}`);
+  //             setTimeout(() => {
+  //               window.scroll(0, 0);
+  //             }, 1000);
+  //           }}
+  //         >
+  //           <IoFishSharp className="mr-5" /> {data.ten.toUpperCase()}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   </>
+  // );
   const desktopSlider = (
     <div className="grid grid-cols-7 gap-5 justify-start items-start cursor-pointer w-full">
       {/* <div className=" h-[500px] w-max overflow-y-auto bg-gray-100 shadow-lg">
@@ -114,7 +116,7 @@ export default function SliderShow() {
           slidesPerView={1}
           slidesPerGroup={1}
           autoplay={{
-            delay: 7000,
+            delay: 10000,
             disableOnInteraction: false,
           }}
           pagination={{
@@ -124,7 +126,7 @@ export default function SliderShow() {
           modules={[Pagination, Autoplay]}
           className="mySwiper"
         >
-          <SwiperSlide>
+          {/* <SwiperSlide>
             <div className="flex w-full justify-center">
               <img
                 src="https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2Fa.png?alt=media&token=0c11d570-98c1-4692-8373-2167993ac1a8"
@@ -132,49 +134,131 @@ export default function SliderShow() {
                 className="w-[60%] object-contain"
               />
             </div>
+          </SwiperSlide> */}
+          <SwiperSlide>
+            <Swiper
+              spaceBetween={30}
+              centeredSlides={true}
+              slidesPerView={3}
+              slidesPerGroup={1}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              modules={[Autoplay]}
+              className="mySwiper"
+            >
+              {datasanpham
+                .filter((item: any) => item.loai1 === "SẢN PHẨM NỔI BẬT")
+                .map((data: any, idx: number) => (
+                  <div key={idx}>
+                    {" "}
+                    <SwiperSlide>
+                      <ProductSlide sanpham={data} type={"slide"} />
+                    </SwiperSlide>
+                  </div>
+                ))}
+            </Swiper>
           </SwiperSlide>
           <SwiperSlide>
-            <SlideItem
-              Background={
-                "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2FPicture4.png?alt=media&token=a4a14673-bea7-4606-8999-fbcbda2dff3e"
-              }
-              title="Gạo sạch Cà Mau"
-              Data={slidershow?.filter((items: any) => items.type === "rice")}
-            />
+            <Swiper
+              spaceBetween={30}
+              centeredSlides={true}
+              slidesPerView={3}
+              slidesPerGroup={1}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              modules={[Autoplay]}
+              className="mySwiper"
+            >
+              {datasanpham
+                .filter((item: any) => item.loai1 === "SẢN PHẨM CHỦ LỰC")
+                .map((data: any, idx: number) => (
+                  <div key={idx}>
+                    {" "}
+                    <SwiperSlide>
+                      <ProductSlide sanpham={data} type={"slide"} />
+                    </SwiperSlide>
+                  </div>
+                ))}
+            </Swiper>
           </SwiperSlide>
           <SwiperSlide>
-            <SlideItem
-              Background={
-                "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2FUntitled%20design.png?alt=media&token=b9d6cab3-07fc-4ec4-a638-4f05071d21c7"
-              }
-              title="Khô Mực Cà Mau"
-              Data={slidershow?.filter(
-                (items: any) => items.type === "driedsquid"
-              )}
-            />
+            <Swiper
+              spaceBetween={30}
+              centeredSlides={true}
+              slidesPerView={3}
+              slidesPerGroup={1}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              modules={[Autoplay]}
+              className="mySwiper"
+            >
+              {datasanpham
+                .filter((item: any) => item.loai1 === "SẢN PHẨM KHÁC")
+                .map((data: any, idx: number) => (
+                  <div key={idx}>
+                    {" "}
+                    <SwiperSlide>
+                      <ProductSlide sanpham={data} type={"slide"} />
+                    </SwiperSlide>
+                  </div>
+                ))}
+            </Swiper>
           </SwiperSlide>
           <SwiperSlide>
-            <SlideItem
-              Background={
-                "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2FPicture3.png?alt=media&token=0ca29981-d86c-4cc4-a197-8636b1871454"
-              }
-              Data={slidershow?.filter(
-                (items: any) => items.type === "freshsquid"
-              )}
-              title="Mực tươi Cà Mau"
-            />
+            <Swiper
+              spaceBetween={30}
+              centeredSlides={true}
+              slidesPerView={3}
+              slidesPerGroup={1}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              modules={[Autoplay]}
+              className="mySwiper"
+            >
+              {datasanpham
+                .filter((item: any) => item.loai1 === "SẢN PHẨM CHÍNH")
+                .map((data: any, idx: number) => (
+                  <div key={idx}>
+                    {" "}
+                    <SwiperSlide>
+                      <ProductSlide sanpham={data} type={"slide"} />
+                    </SwiperSlide>
+                  </div>
+                ))}
+            </Swiper>
           </SwiperSlide>
-
           <SwiperSlide>
-            <SlideItem
-              Background={
-                "https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2FPicture1.png?alt=media&token=00f68fe4-d2a5-4972-bdf2-d12568f27b4d"
-              }
-              Data={slidershow?.filter(
-                (items: any) => items.type === "seafood"
-              )}
-              title="Thủy Hải Sản Biển Cà Mau"
-            />
+            <Swiper
+              spaceBetween={30}
+              centeredSlides={true}
+              slidesPerView={3}
+              slidesPerGroup={1}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              modules={[Autoplay]}
+              className="mySwiper"
+            >
+              {datasanpham
+                .filter((item: any) => item.loai1 === "SẢN PHẨM NỔI BẬT")
+                .map((data: any, idx: number) => (
+                  <div key={idx}>
+                    {" "}
+                    <SwiperSlide>
+                      <ProductSlide sanpham={data} type={"slide"} />
+                    </SwiperSlide>
+                  </div>
+                ))}
+            </Swiper>
           </SwiperSlide>
         </Swiper>
       </div>

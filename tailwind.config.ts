@@ -18,6 +18,7 @@ const config: Config = {
       },
       fontFamily: {
         UTM_Fleur: ["UTMFleur", "sans-serif"],
+        Noto_Serif: ["NotoSerif", "sans-serif"],
         //system font
         OpenSans: ["Open Sans", "sans-serif"],
         LexendDeca: ["Lexend Deca", "sans-serif"],

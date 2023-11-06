@@ -232,6 +232,7 @@ export default function SanPham() {
     // if (photoURL === "") {
     //   thongbaoError("Chưa Upload hình ảnh lên !!");
     // } else {
+
     addDocument("sanpham", {
       ...values,
       photoURL: photoURL,

@@ -7,14 +7,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'UTMFleur' ;
-  src: url(../fonts/UTMFleur.ttf) format('truetype');
-}
 
-font-face {
-  font-family: "UTMAmerica";
-  src:url(../fonts/UTM\ American\ Sans.ttf) format("truetype");
+
+@font-face {
+  font-family: "NotoSerif";
+ src:url(../fonts/NotoSerif.ttf) format('truetype');
 }
 
 
