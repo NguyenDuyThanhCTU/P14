@@ -149,7 +149,9 @@ export default function SliderShow() {
               className="mySwiper"
             >
               {datasanpham
-                .filter((item: any) => item.loai1 === "SẢN PHẨM NỔI BẬT")
+                .filter(
+                  (item: any) => item.loai1 === "SẢN PHẨM NỔI BẬT GIẢM GIÁ"
+                )
                 .map((data: any, idx: number) => (
                   <div key={idx}>
                     {" "}
@@ -174,7 +176,7 @@ export default function SliderShow() {
               className="mySwiper"
             >
               {datasanpham
-                .filter((item: any) => item.loai1 === "SẢN PHẨM CHỦ LỰC")
+                .filter((item: any) => item.loai1 === "THỦY SẢN TƯƠI CÀ MAU")
                 .map((data: any, idx: number) => (
                   <div key={idx}>
                     {" "}
@@ -199,7 +201,9 @@ export default function SliderShow() {
               className="mySwiper"
             >
               {datasanpham
-                .filter((item: any) => item.loai1 === "SẢN PHẨM KHÁC")
+                .filter(
+                  (item: any) => item.loai1 === "THỦY SẢN ĐÔNG LẠNH CÀ MAU"
+                )
                 .map((data: any, idx: number) => (
                   <div key={idx}>
                     {" "}
@@ -224,7 +228,7 @@ export default function SliderShow() {
               className="mySwiper"
             >
               {datasanpham
-                .filter((item: any) => item.loai1 === "SẢN PHẨM CHÍNH")
+                .filter((item: any) => item.loai1 === "KHÔ HẢI SẢN CÀ MAU")
                 .map((data: any, idx: number) => (
                   <div key={idx}>
                     {" "}
@@ -249,7 +253,7 @@ export default function SliderShow() {
               className="mySwiper"
             >
               {datasanpham
-                .filter((item: any) => item.loai1 === "SẢN PHẨM NỔI BẬT")
+                .filter((item: any) => item.loai1 === "NÔNG SẢN SẠCH CÀ MAU")
                 .map((data: any, idx: number) => (
                   <div key={idx}>
                     {" "}

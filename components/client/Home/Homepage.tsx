@@ -47,7 +47,7 @@ export default function Homepage() {
             Nơi gửi trọn niềm tin
           </div>
         </div> */}
-        <div className="h-max">
+        <div className="h-max relative bg-[rgba(255,255,255,0.49)] ">
           <div className="relative h-max w-full ">
             <div className="p:w-auto  d:w-[1300px] mx-auto absolute left-1  right-1">
               <Swiper
@@ -83,10 +83,10 @@ export default function Homepage() {
                 ))}
               </Swiper>
             </div>
-            <div className="bg-[url(http://www.baseafood.vn/images/bg_slider.png)] bg-no-repeat h-[70vh] w-full bg-cover py-10    bg-right-bottom relative bottom-full z-50">
-              <div className="w-40 h-40 rounded-full border-blue-500 border-[10px] overflow-hidden">
+
+            <div className="  h-[65vh] w-full      bg-right-bottom relative bottom-0 z-50 ">
+              <div className="w-32 h-32 rounded-full border-blue-500 border-[10px] overflow-hidden">
                 <Swiper
-                  centeredSlides={true}
                   slidesPerView={1}
                   slidesPerGroup={1}
                   autoplay={{
@@ -102,7 +102,7 @@ export default function Homepage() {
                     ?.map((item: any, index: number) => (
                       <SwiperSlide>
                         <div key={index}>
-                          <div className="w-40 h-40 rounded-full flex justify-center ">
+                          <div className="w-32 h-32 rounded-full flex justify-center ">
                             <img
                               src={item.photoURL}
                               alt="project"
@@ -114,7 +114,7 @@ export default function Homepage() {
                     ))}
                 </Swiper>
               </div>
-              <div className="w-40 h-40 overflow-hidden rounded-full border-blue-500 border-[10px] relative  left-56">
+              <div className="w-32 h-32 overflow-hidden rounded-full border-blue-500 border-[10px] relative  left-56">
                 <Swiper
                   centeredSlides={true}
                   slidesPerView={1}
@@ -132,7 +132,7 @@ export default function Homepage() {
                     ?.map((item: any, index: number) => (
                       <SwiperSlide>
                         <div key={index}>
-                          <div className="w-40 h-40 rounded-full flex justify-center ">
+                          <div className="w-32 h-32 rounded-full flex justify-center ">
                             <img
                               src={item.photoURL}
                               alt="project"
@@ -144,8 +144,8 @@ export default function Homepage() {
                     ))}
                 </Swiper>
               </div>
-              <div className="absolute left-[600px] top-96   flex  gap-[224px]">
-                <div className="w-40 h-40  overflow-hidden rounded-full border-blue-500 border-[10px]">
+              <div className="absolute left-[550px] bottom-0 h-[30vh]  z-50  flex  gap-[224px]">
+                <div className="w-32 h-32  overflow-hidden rounded-full border-blue-500 border-[10px]">
                   <Swiper
                     centeredSlides={true}
                     slidesPerView={1}
@@ -163,7 +163,7 @@ export default function Homepage() {
                       ?.map((item: any, index: number) => (
                         <SwiperSlide>
                           <div key={index}>
-                            <div className="w-40 h-40  rounded-full flex justify-center  items-center">
+                            <div className="w-32 h-32  rounded-full flex justify-center ">
                               <img
                                 src={item.photoURL}
                                 alt="project"
@@ -175,7 +175,7 @@ export default function Homepage() {
                       ))}
                   </Swiper>
                 </div>
-                <div className="w-40 h-40 overflow-hidden rounded-full border-blue-500 border-[10px]">
+                <div className="w-32 h-32 mt-20 overflow-hidden rounded-full border-blue-500 border-[10px]">
                   <Swiper
                     centeredSlides={true}
                     slidesPerView={1}
@@ -193,7 +193,7 @@ export default function Homepage() {
                       ?.map((item: any, index: number) => (
                         <SwiperSlide>
                           <div key={index}>
-                            <div className="w-40 h-40  rounded-full flex justify-center ">
+                            <div className="w-32 h-32  rounded-full flex justify-center ">
                               <img
                                 src={item.photoURL}
                                 alt="project"
@@ -210,7 +210,7 @@ export default function Homepage() {
           </div>
         </div>
 
-        <div className="p:w-auto d:w-[1300px] bg-no-repeat bg-cover mt-10  bg-center mx-auto bg-[url(https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2Fz4840795432538_e0d93e1fe26a6691c6b3745d8c8f9ae0.jpg?alt=media&token=b85dd234-08a2-4f55-a792-f703ced8ffc2)]">
+        <div className="p:w-auto d:w-[1300px] bg-no-repeat bg-cover  bg-center mx-auto bg-[url(https://firebasestorage.googleapis.com/v0/b/nongsanthuysanthienngoc.appspot.com/o/slidershow%2Fz4853719843255_fbc5ac5246a04306729f383c6ceb2de6.jpg?alt=media&token=53323423-c2cc-48c2-92ec-2a835b8b9b94)]">
           <div className="w-full h-full bg-[rgba(0,0,0,0.45)]">
             <div className="p-10 flex flex-col items-center gap-5">
               <h2 className="uppercase text-[30px] text-white">Giới thiệu</h2>
@@ -223,22 +223,17 @@ export default function Homepage() {
               </div>
               <div className="text-white text-[16px]">
                 <p>
-                  Với 100 CBCNV nên xưởng sản xuất và kho đông lạnh có sức chứa
-                  hơn 1.000 tấn. Sản lượng hàng hóa mỗi năm sản xuất và kinh
-                  doanh nông sản - thủy sản từ 5.000 tấn trở lên để phục vụ xuất
-                  nhập khẩu và tiêu thụ nội địa.
-                  <br />
-                  Công ty tuy mới hoạt động nhưng hàng hóa của Công ty đã được
-                  thị trường chấp nhận, đã và đang được ủng hộ nhiệt tình của
-                  người tiêu dùng với thương hiệu “ Thiên Ngọc”. Trước mắt công
-                  ty đang định hướng cho những năm tiếp theo để chuẩn bị, mở
-                  rộng quy mô sản xuất, đầu tư cho thương hiệu và phấn đấu thành
-                  một trong những nhà cung cấp hàng đầu về thủy sản đông lạnh và
-                  chế biến miền Nam, tiến tới phấn đấu trở thành thương hiệu
-                  mạnh quốc gia. Hiện nay doanh nghiệp đang tiến hành kinh doanh
-                  theo phương thức kinh doanh online: mở rộng thị đến với các
-                  quốc gia qua các app web bán hàng. Thị trường xuất nhập khẩu
-                  và Nội địa ...
+                  Công ty TNHH nông sản – thủy sản Thiên Ngọc là doanh nghiệp tư
+                  nhân được thành lập từ năm 2020, tuy mới hoạt động nhưng hàng
+                  hóa của Công ty đã được thị trường chấp nhận, đã và đang được
+                  sự ủng hộ nhiệt tình từ người tiêu dùng với thương hiệu “
+                  Thiên Ngọc”. Trước mắt công ty đang định hướng cho những năm
+                  tiếp theo để mở rộng quy mô sản xuất, đầu tư cho thương hiệu
+                  và phấn đấu thành một trong những nhà cung cấp hàng đầu về
+                  thủy sản đông lạnh và chế biến miền Nam, tiến tới phấn đấu trở
+                  thành thương hiệu mạnh quốc gia. Hiện nay doanh nghiệp đang
+                  tiến hành kinh doanh theo phương thức kinh doanh online: mở
+                  rộng thị trường đến với các quốc gia qua các app web bán hàng…
                 </p>
               </div>
               <Link href={`/gioithieu`} className="flex">

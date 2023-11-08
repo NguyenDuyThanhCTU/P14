@@ -20,7 +20,7 @@ export default function CauHinhChung() {
   const [diachi1, setDiachi1] = useState<string>("");
   const [diachi2, setDiachi2] = useState<string>("");
   const [zalo, setZalo] = useState<string>("");
-  const [instagram, setInstagram] = useState<string>("");
+  const [Tiktok, setTiktok] = useState<string>("");
   const [fanpage, setFanpage] = useState<string>("");
   const [messenger, setMessenger] = useState<string>("");
   const [map, setMap] = useState<string>("");
@@ -37,7 +37,7 @@ export default function CauHinhChung() {
       setDiachi1(thongtin[0]?.diachi1);
       setDiachi2(thongtin[0]?.diachi2);
       setZalo(thongtin[0]?.zalo);
-      setInstagram(thongtin[0]?.instagram);
+      setTiktok(thongtin[0]?.Tiktok);
       setFanpage(thongtin[0]?.fanpage);
       setMessenger(thongtin[0]?.messenger);
       setMap(thongtin[0]?.map);
@@ -255,12 +255,12 @@ export default function CauHinhChung() {
       </div>
       <div className="box-cauhinh">
         <div className="mb-2">
-          <p className="font-bold">Instagram (Instagram) :</p>
+          <p className="font-bold">Tiktok (Tiktok) :</p>
           <Input
             prefix={<EditOutlined />}
             className="my-1 rounded-lg"
-            value={instagram}
-            onChange={(e) => setInstagram(e.target.value)}
+            value={Tiktok}
+            onChange={(e) => setTiktok(e.target.value)}
           />
         </div>
         <div>
@@ -270,8 +270,8 @@ export default function CauHinhChung() {
             color="primary"
             fullWidth
             onClick={() => {
-              updAllDocument("thongtin", { instagram: instagram });
-              thongbaoSucess("Instagram");
+              updAllDocument("thongtin", { Tiktok: Tiktok });
+              thongbaoSucess("Tiktok");
             }}
           >
             Cập nhật nội dung

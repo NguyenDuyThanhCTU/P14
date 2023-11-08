@@ -4,9 +4,13 @@ import SanPham from "./SanPham";
 import { useData } from "@Context/AppProvider";
 
 const Product = ({ topic }: any) => {
-  const { sanpham, router } = useData();
-
-  const dataloai = sanpham.filter((data: any) => data.loai1 === topic);
+  const { sanpham, router, sanphamsalesoff } = useData();
+  let dataloai: any = [];
+  if (topic === "SẢN PHẨM NỔI BẬT GIẢM GIÁ") {
+    dataloai = sanphamsalesoff.filter((data: any) => data.loai1 === topic);
+  } else {
+    dataloai = sanpham.filter((data: any) => data.loai1 === topic);
+  }
 
   return (
     <>

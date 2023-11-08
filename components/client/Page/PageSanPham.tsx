@@ -17,59 +17,84 @@ export default function PageSanPham() {
     loaisanpham,
     setUid,
     router,
+    sanphamsalesoff,
+    loai,
     setLoai,
   } = useData();
   const datasanpham = sanpham.map((data: any) => data).reverse();
   const dataloai = loaisanpham.map((data: any) => data).reverse();
-  const tensanpham = (
-    <>
-      <ul className="max-w-[60vw] cursor-pointer">
-        {sanphamtheoloai2?.map((data: any) => (
-          <li
-            key={data}
-            className="flex justify-start items-center font-bold py-2 px-5 italic hover:bg-gray-200 hover:rounded-md
-                border-b border-dotted hover:text-red-500"
-            onClick={() => {
-              setUid(data.uid);
-              setLoai(data.loai1);
-              router.push(`/san-pham/${data.loai1}/${data.uid}`);
-              setTimeout(() => {
-                window.scroll(0, 0);
-              }, 1000);
-            }}
-          >
-            <IoFishSharp className="mr-5" /> {data.ten.toUpperCase()}
-          </li>
-        ))}
-      </ul>
-    </>
-  );
-  const sanphamloai1 = (
-    <>
-      <ul className="max-w-[60vw] cursor-pointer">
-        {sanphamtheoloai1[0]?.loai2?.map((data: any) => (
-          <Popover key={data.uid} placement="rightTop" content={tensanpham}>
+
+  // const tensanpham = (
+  //   <>
+  //     <ul className="max-w-[60vw] cursor-pointer">
+  //       {sanphamtheoloai2?.map((data: any) => (
+  //         <li
+  //           key={data}
+  //           className="flex justify-start items-center font-bold py-2 px-5 italic hover:bg-gray-200 hover:rounded-md
+  //               border-b border-dotted hover:text-red-500"
+  //           onClick={() => {
+  //             setUid(data.uid);
+  //             setLoai(data.loai1);
+  //             router.push(`/san-pham/${data.loai1}/${data.uid}`);
+  //             setTimeout(() => {
+  //               window.scroll(0, 0);
+  //             }, 1000);
+  //           }}
+  //         >
+  //           <IoFishSharp className="mr-5" /> {data.ten.toUpperCase()}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   </>
+  // );
+  // const sanphamloai1 = (
+  //   <>
+  //     <ul className="max-w-[60vw] cursor-pointer">
+  //       {sanphamtheoloai1[0]?.loai2?.map((data: any) => (
+  //         <Popover key={data.uid} placement="rightTop" content={tensanpham}>
+  //           <li
+  //             key={data}
+  //             className="flex justify-start items-center font-bold py-2 px-5 italic hover:bg-gray-200 hover:rounded-md
+  //               border-b border-dotted hover:text-red-500"
+  //             onClick={() => {
+  //               setUid(data.uid);
+  //               setLoai(data);
+  //               router.push("/loaisanpham");
+  //               setTimeout(() => {
+  //                 window.scroll(0, 0);
+  //               }, 1000);
+  //             }}
+  //           >
+  //             <IoFishSharp className="mr-5" /> {data.toUpperCase()}
+  //           </li>
+  //         </Popover>
+  //       ))}
+  //     </ul>
+  //   </>
+  // );
+  const sanPhamLoai = (
+    <ul className="max-w-[60vw] cursor-pointer">
+      {loai === "SẢN PHẨM NỔI BẬT GIẢM GIÁ"
+        ? sanphamsalesoff
+        : sanphamtheoloai1?.map((data: any) => (
             <li
               key={data}
               className="flex justify-start items-center font-bold py-2 px-5 italic hover:bg-gray-200 hover:rounded-md
                 border-b border-dotted hover:text-red-500"
               onClick={() => {
                 setUid(data.uid);
-                setLoai(data);
-                router.push("/loaisanpham");
+                setLoai(data.loai1);
+                router.push(`/san-pham/${data.loai1}/${data.uid}`);
                 setTimeout(() => {
                   window.scroll(0, 0);
                 }, 1000);
               }}
             >
-              <IoFishSharp className="mr-5" /> {data.toUpperCase()}
+              <IoFishSharp className="mr-5" /> {data?.ten?.toUpperCase()}
             </li>
-          </Popover>
-        ))}
-      </ul>
-    </>
+          ))}
+    </ul>
   );
-
   return (
     <Fragment>
       <div className="web-bg">
@@ -86,7 +111,7 @@ export default function PageSanPham() {
                   <Popover
                     key={data.uid}
                     placement="rightTop"
-                    content={sanphamloai1}
+                    content={sanPhamLoai}
                   >
                     <li
                       className="flex justify-start items-center font-bold py-2 px-5 italic hover:bg-gray-200 hover:rounded-md
